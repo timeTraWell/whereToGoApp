@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5D318922246875006A8F2F /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D318722246875006A8F2F /* NavigationCell.swift */; };
+		FA5D318A22246875006A8F2F /* NavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D318822246875006A8F2F /* NavigationCell.xib */; };
+		FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D318B22253B3B006A8F2F /* ContentCell.swift */; };
+		FA5D318E22253B3B006A8F2F /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D318C22253B3B006A8F2F /* ContentCell.xib */; };
+		FA5D3196222A7366006A8F2F /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */; };
+		FA5D3197222A7366006A8F2F /* SF-Pro-Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3195222A7366006A8F2F /* SF-Pro-Text-Regular.ttf */; };
 		FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8C221B0B0500A03128 /* AppDelegate.swift */; };
-		FA900D8F221B0B0500A03128 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8E221B0B0500A03128 /* ViewController.swift */; };
+		FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8E221B0B0500A03128 /* MainViewController.swift */; };
 		FA900D92221B0B0500A03128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA900D90221B0B0500A03128 /* Main.storyboard */; };
 		FA900D94221B0B0600A03128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA900D93221B0B0600A03128 /* Assets.xcassets */; };
 		FA900D97221B0B0600A03128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA900D95221B0B0600A03128 /* LaunchScreen.storyboard */; };
 		FA900DA2221B0B0600A03128 /* whereToGoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DA1221B0B0600A03128 /* whereToGoAppTests.swift */; };
 		FA900DAD221B0B0600A03128 /* whereToGoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DAC221B0B0600A03128 /* whereToGoAppUITests.swift */; };
+		FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */; };
+		FA900DE82220718200A03128 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DE62220718200A03128 /* TitleCell.swift */; };
+		FA900DE92220718200A03128 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA900DE72220718200A03128 /* TitleCell.xib */; };
+		FA900DEB2220763400A03128 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DEA2220763400A03128 /* Fonts.swift */; };
+		FA900DED222078A700A03128 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DEC222078A700A03128 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA5D318722246875006A8F2F /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
+		FA5D318822246875006A8F2F /* NavigationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationCell.xib; sourceTree = "<group>"; };
+		FA5D318B22253B3B006A8F2F /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		FA5D318C22253B3B006A8F2F /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
+		FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		FA5D3195222A7366006A8F2F /* SF-Pro-Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.ttf"; sourceTree = "<group>"; };
 		FA900D89221B0B0500A03128 /* whereToGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whereToGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA900D8C221B0B0500A03128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA900D8E221B0B0500A03128 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA900D8E221B0B0500A03128 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FA900D91221B0B0500A03128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA900D93221B0B0600A03128 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA900D96221B0B0600A03128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,11 @@
 		FA900DA8221B0B0600A03128 /* whereToGoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whereToGoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA900DAC221B0B0600A03128 /* whereToGoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whereToGoAppUITests.swift; sourceTree = "<group>"; };
 		FA900DAE221B0B0600A03128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewAdapter.swift; sourceTree = "<group>"; };
+		FA900DE62220718200A03128 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		FA900DE72220718200A03128 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		FA900DEA2220763400A03128 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		FA900DEC222078A700A03128 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +96,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA5D318F22295A3A006A8F2F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */,
+				FA5D3195222A7366006A8F2F /* SF-Pro-Text-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FA900D80221B0B0500A03128 = {
 			isa = PBXGroup;
 			children = (
+				FA5D318F22295A3A006A8F2F /* Fonts */,
 				FA900D8B221B0B0500A03128 /* whereToGoApp */,
 				FA900DA0221B0B0600A03128 /* whereToGoAppTests */,
 				FA900DAB221B0B0600A03128 /* whereToGoAppUITests */,
@@ -97,12 +129,13 @@
 		FA900D8B221B0B0500A03128 /* whereToGoApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA900D8C221B0B0500A03128 /* AppDelegate.swift */,
-				FA900D8E221B0B0500A03128 /* ViewController.swift */,
+				FA900DE52220714D00A03128 /* Cells */,
+				FA900DE422206D4500A03128 /* Application */,
+				FA900DE022206CBE00A03128 /* Adapter */,
+				FA900DE122206CF200A03128 /* ViewControllers */,
+				FA900DE222206D0000A03128 /* View */,
+				FA900DE322206D0A00A03128 /* Supporting Files */,
 				FA900D90221B0B0500A03128 /* Main.storyboard */,
-				FA900D93221B0B0600A03128 /* Assets.xcassets */,
-				FA900D95221B0B0600A03128 /* LaunchScreen.storyboard */,
-				FA900D98221B0B0600A03128 /* Info.plist */,
 			);
 			path = whereToGoApp;
 			sourceTree = "<group>";
@@ -123,6 +156,62 @@
 				FA900DAE221B0B0600A03128 /* Info.plist */,
 			);
 			path = whereToGoAppUITests;
+			sourceTree = "<group>";
+		};
+		FA900DE022206CBE00A03128 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		FA900DE122206CF200A03128 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA900D8E221B0B0500A03128 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA900DE222206D0000A03128 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA900DE322206D0A00A03128 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA900D93221B0B0600A03128 /* Assets.xcassets */,
+				FA900D95221B0B0600A03128 /* LaunchScreen.storyboard */,
+				FA900D98221B0B0600A03128 /* Info.plist */,
+				FA900DEA2220763400A03128 /* Fonts.swift */,
+				FA900DEC222078A700A03128 /* Color.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA900DE422206D4500A03128 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FA900D8C221B0B0500A03128 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FA900DE52220714D00A03128 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA900DE62220718200A03128 /* TitleCell.swift */,
+				FA900DE72220718200A03128 /* TitleCell.xib */,
+				FA5D318722246875006A8F2F /* NavigationCell.swift */,
+				FA5D318822246875006A8F2F /* NavigationCell.xib */,
+				FA5D318B22253B3B006A8F2F /* ContentCell.swift */,
+				FA5D318C22253B3B006A8F2F /* ContentCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +318,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5D318A22246875006A8F2F /* NavigationCell.xib in Resources */,
+				FA900DE92220718200A03128 /* TitleCell.xib in Resources */,
 				FA900D97221B0B0600A03128 /* LaunchScreen.storyboard in Resources */,
+				FA5D3197222A7366006A8F2F /* SF-Pro-Text-Regular.ttf in Resources */,
 				FA900D94221B0B0600A03128 /* Assets.xcassets in Resources */,
 				FA900D92221B0B0500A03128 /* Main.storyboard in Resources */,
+				FA5D318E22253B3B006A8F2F /* ContentCell.xib in Resources */,
+				FA5D3196222A7366006A8F2F /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA900D8F221B0B0500A03128 /* ViewController.swift in Sources */,
+				FA5D318922246875006A8F2F /* NavigationCell.swift in Sources */,
+				FA900DE82220718200A03128 /* TitleCell.swift in Sources */,
+				FA900DEB2220763400A03128 /* Fonts.swift in Sources */,
+				FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
+				FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */,
+				FA900DED222078A700A03128 /* Color.swift in Sources */,
+				FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = whereToGoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/whereToGoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,7 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = whereToGoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/whereToGoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
