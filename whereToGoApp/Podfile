@@ -2,6 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 use_frameworks!
 
-target 'AlamofireExample' do
+target 'whereToGoApp' do
 pod 'Alamofire', '~> 5.0.0-beta.2'
 end
