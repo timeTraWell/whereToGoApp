@@ -48,14 +48,6 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row == 0 {
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: titleCellName, for: indexPath) as? TitleCell else {
-//                fatalError("kek")
-//            }
-//            cell.titleLabel.text = "Куда сходить"
-//            return cell
-//        }
-//        fatalError("kek2")
         
         switch indexPath.row {
         case 0:
@@ -74,19 +66,7 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     fatalError("keks")
                 }
-//            cell.backgroundColor = .black
-            
-            
-            
-
             return cell
-//        default:
-//            print("section \(indexPath.section)")
-//
         }
-//        fatalError("kekes")
-        
     }
-    
-    
 }
