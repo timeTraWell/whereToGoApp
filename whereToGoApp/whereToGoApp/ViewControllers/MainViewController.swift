@@ -23,13 +23,21 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupAdapter()
+        let service = EventsService()
+        service.loadEvents(eventsCount: "5") { (result) in
+            switch result {
+            case .data( let events):
+                self.setupAdapter(events: events)
+            case .error(let error):
+                print(error)
+            }
+        }
     }
 
     // MARK: - Private helpers
 
-    private func setupAdapter() {
-        let adapter = MainTableViewAdapter(numberOfCells: [], tableView: tableView)
+    private func setupAdapter(events: [Event]) {
+        let adapter = MainTableViewAdapter(events: events, tableView: tableView)
         tableView.dataSource = adapter
         tableView.delegate = adapter
         tableView.reloadData()
