@@ -20,13 +20,59 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var dateIcon: UIImageView!
     @IBOutlet weak var costIcon: UIImageView!
     @IBOutlet weak var container: UIView!
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clear
+        
         initLabels()
         initContainer()
+    }
+
+    func setupCell(event: Event) {
+        eventNameLabel.text = event.title
+        eventDescriptionLabel.text = event.description
+        if event.price == "" { // TODO: - perform ternar operatop
+            eventCostLabel.text = "бесплатно"
+        } else {
+            eventCostLabel.text = event.price
+        }
+        
+        guard let date = event.dates?[0] else {
+            print("dateKek")
+            return
+        }
+        
+        let startDate = getFormatedDate(intDate: date.start) // TODO: - ask about months
+        let endDate = getFormatedDate(intDate: date.end)
+        
+        if (startDate != "error" && endDate != "error") {
+            eventDateLabel.text = startDate + " - " + endDate
+        } else {
+            print("start or end data kekys")
+        }
+        
+    }
+    
+    private func getFormatedDate(intDate: Int) -> String {
+        // convert Int to Double
+        let timeInterval = Double(intDate)
+        
+        // create NSDate from Double (NSTimeInterval)
+        let resultDate = Date(timeIntervalSince1970: timeInterval)
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss" // in this format date get from server
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "ru_RU")
+        dateFormatterPrint.dateFormat = "dd MMMM"
+        
+        if dateFormatterGet.date(from: dateFormatterGet.string(from: resultDate)) != nil {
+            return dateFormatterPrint.string(from: resultDate)
+        } else {
+            return "error"
+        }
     }
     
     private func initLabels()  {
@@ -46,7 +92,7 @@ class ContentCell: UITableViewCell {
         eventCostLabel.textColor = Color.gray
     }
     
-    private func initContainer()    {
+    private func initContainer() {
         container.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         container.layer.cornerRadius = 16
