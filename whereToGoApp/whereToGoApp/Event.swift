@@ -13,7 +13,7 @@ class Event: Codable {
     let title: String
     let price: String
     let description: String
-    let dates: [ResponseDate]
+    let dates: [ResponseDate]?
     let images: [ResponseImage]
 }
 
