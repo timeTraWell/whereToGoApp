@@ -11,6 +11,6 @@ import UIKit
 final class Fonts {
     
     static let titleFont = UIFont(name: "SFProDisplay-Medium", size: 30)
-    static let SFProText16 = UIFont(name: "SFProText-Regular", size: 16)
+    static let SFProText16 = UIFont(name: "SFProText-Bold", size: 16)
     static let SFProText14 = UIFont(name: "SFProText-Regular", size: 14)
 }
