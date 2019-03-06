@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import Alamofire
 
 final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // MARK:- Properties
 
-    private var placesToGo: [String]
     private let titleCellName = String(describing: TitleCell.self)
     private let navCellName = String(describing: NavigationCell.self)
     private let contentCell = String(describing: ContentCell.self)
+    private let events: [Event]
 
     // MARK: - Init
 
-    init(numberOfCells: [String], tableView: UITableView) {
-        self.placesToGo = numberOfCells
+    init(events: [Event], tableView: UITableView) {
+        self.events = events
         tableView.register(
             UINib(nibName: titleCellName, bundle: .main),
             forCellReuseIdentifier: titleCellName
@@ -42,13 +43,10 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 2 + placesToGo.count
-        return 2 + 2
+        return 2 + events.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: navCellName, for: indexPath) as? NavigationCell else {
@@ -66,6 +64,7 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     fatalError("keks")
                 }
+            cell.setupCell(event: events[indexPath.row-2])
             return cell
         }
     }
