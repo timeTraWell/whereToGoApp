@@ -29,6 +29,8 @@
 		FAE6D90D222D432D00D763D0 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE6D90C222D432D00D763D0 /* SF-Pro-Text-Bold.ttf */; };
 		FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D90E222D482F00D763D0 /* EventsService.swift */; };
 		FAE6D911222D69C900D763D0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D910222D69C900D763D0 /* Event.swift */; };
+		FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D91422325BE600D763D0 /* ImagesLoader.swift */; };
+		FAE6D91A2232FD0F00D763D0 /* ViewCornerRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D9192232FD0F00D763D0 /* ViewCornerRound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		FAE6D90C222D432D00D763D0 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
 		FAE6D90E222D482F00D763D0 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsService.swift; path = whereToGoApp/EventsService.swift; sourceTree = SOURCE_ROOT; };
 		FAE6D910222D69C900D763D0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FAE6D91422325BE600D763D0 /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
+		FAE6D9192232FD0F00D763D0 /* ViewCornerRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCornerRound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		FA900D80221B0B0500A03128 = {
 			isa = PBXGroup;
 			children = (
+				FAE6D9182232FCE600D763D0 /* Extensions */,
 				FA5D318F22295A3A006A8F2F /* Fonts */,
 				FA900D8B221B0B0500A03128 /* whereToGoApp */,
 				FA900DA0221B0B0600A03128 /* whereToGoAppTests */,
@@ -162,6 +167,7 @@
 			children = (
 				FAE6D910222D69C900D763D0 /* Event.swift */,
 				FAE6D90E222D482F00D763D0 /* EventsService.swift */,
+				FAE6D91422325BE600D763D0 /* ImagesLoader.swift */,
 				FA900DE52220714D00A03128 /* Cells */,
 				FA900DE422206D4500A03128 /* Application */,
 				FA900DE022206CBE00A03128 /* Adapter */,
@@ -245,6 +251,14 @@
 				FA5D318C22253B3B006A8F2F /* ContentCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAE6D9182232FCE600D763D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAE6D9192232FD0F00D763D0 /* ViewCornerRound.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,12 +428,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-whereToGoApp/Pods-whereToGoApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,10 +449,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE6D91A2232FD0F00D763D0 /* ViewCornerRound.swift in Sources */,
 				FA5D318922246875006A8F2F /* NavigationCell.swift in Sources */,
 				FA900DE82220718200A03128 /* TitleCell.swift in Sources */,
 				FA900DEB2220763400A03128 /* Fonts.swift in Sources */,
 				FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */,
+				FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */,
 				FAE6D911222D69C900D763D0 /* Event.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,

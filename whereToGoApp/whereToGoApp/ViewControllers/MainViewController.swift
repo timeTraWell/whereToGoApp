@@ -26,12 +26,13 @@ final class MainViewController: UIViewController {
         let service = EventsService()
         service.loadEvents(eventsCount: "5") { (result) in
             switch result {
-            case .data( let events):
+            case .data(let events):
                 self.setupAdapter(events: events)
             case .error(let error):
                 print(error)
             }
         }
+        
     }
 
     // MARK: - Private helpers

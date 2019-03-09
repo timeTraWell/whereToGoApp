@@ -21,10 +21,10 @@ class EventsService {
         let t = type(of: value)
         print("'\(value)' of type '\(t)'")
     }
-    //id,dates,images,price
+    
     func loadEvents(eventsCount: String, completion: @escaping (Result<[Event]>) -> Void) {
         let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,images,price,title,description&page_size=\(eventsCount)&text_format=text&location=msk"
-        AF.request(url, method: .get).responseJSON { response in
+        Alamofire.request(url, method: .get).responseJSON { response in
             guard response.result.isSuccess else {
                 return completion(.error("Ошибка при запросе данных \(String(describing: response.result.error))"))
             }

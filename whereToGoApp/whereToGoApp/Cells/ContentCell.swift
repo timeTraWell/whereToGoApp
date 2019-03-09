@@ -27,6 +27,9 @@ class ContentCell: UITableViewCell {
         
         initLabels()
         initContainer()
+        topImage.layoutIfNeeded()
+        topImage.clipsToBounds = true
+        topImage.layer.masksToBounds = true
     }
 
     func setupCell(event: Event) {
@@ -49,8 +52,21 @@ class ContentCell: UITableViewCell {
         if (startDate != "error" && endDate != "error") {
             eventDateLabel.text = startDate + " - " + endDate
         } else {
-            print("start or end data kekys")
+            print("start or end dataKekys")
         }
+        
+//        topImage.layer.masksToBounds = true
+//        topImage.clipsToBounds = true
+//        topImage.roundCorners([.topLeft, .topRight], radius: 12)
+        
+        let imgService = ImagesLoader()
+        imgService.getImage(event.images[0].image) { (image) in
+            if let imageURL = URL(string: event.images[0].image), let placeholder = UIImage(named: "defaultImg") {
+                self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
+            }
+            
+        }
+        
         
     }
     
