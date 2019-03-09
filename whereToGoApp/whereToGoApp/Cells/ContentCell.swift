@@ -27,9 +27,6 @@ class ContentCell: UITableViewCell {
         
         initLabels()
         initContainer()
-        topImage.layoutIfNeeded()
-        topImage.clipsToBounds = true
-        topImage.layer.masksToBounds = true
     }
 
     func setupCell(event: Event) {
@@ -46,7 +43,7 @@ class ContentCell: UITableViewCell {
             return
         }
         
-        let startDate = getFormatedDate(intDate: date.start) // TODO: - ask about months
+        let startDate = getFormatedDate(intDate: date.start)
         let endDate = getFormatedDate(intDate: date.end)
         
         if (startDate != "error" && endDate != "error") {
@@ -55,9 +52,9 @@ class ContentCell: UITableViewCell {
             print("start or end dataKekys")
         }
         
-//        topImage.layer.masksToBounds = true
-//        topImage.clipsToBounds = true
-//        topImage.roundCorners([.topLeft, .topRight], radius: 12)
+        topImage.layer.masksToBounds = true
+        topImage.layer.cornerRadius = 12
+        topImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let imgService = ImagesLoader()
         imgService.getImage(event.images[0].image) { (image) in
