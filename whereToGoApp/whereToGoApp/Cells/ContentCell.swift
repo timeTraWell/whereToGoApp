@@ -61,9 +61,11 @@ class ContentCell: UITableViewCell {
             if let imageURL = URL(string: event.images[0].image), let placeholder = UIImage(named: "defaultImg") {
                 self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
             }
-            
         }
         
+        if ( event.place?.address != nil)   {
+            geoLocationLabel.text = event.place?.address
+        }
         
     }
     

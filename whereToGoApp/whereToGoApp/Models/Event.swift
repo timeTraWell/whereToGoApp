@@ -15,6 +15,7 @@ class Event: Codable {
     let description: String
     let dates: [ResponseDate]?
     let images: [ResponseImage]
+    let place: ResponsePlace?
 }
 
 class ResponseDate: Codable {
@@ -25,4 +26,8 @@ class ResponseDate: Codable {
 
 class ResponseImage: Codable {
     let image: String
+}
+
+class ResponsePlace: Codable {
+    let address: String
 }
