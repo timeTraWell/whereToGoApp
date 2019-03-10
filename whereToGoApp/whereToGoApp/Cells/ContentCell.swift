@@ -27,9 +27,18 @@ class ContentCell: UITableViewCell {
         
         initLabels()
         initContainer()
+        
+        let UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapEvent(_:)))
+        self.container.addGestureRecognizer(UIGestureRecognizer)
+    }
+    
+    @objc func tapEvent(_ sender:UITapGestureRecognizer){
+        print("tapped \(self.tag)")
     }
 
     func setupCell(event: Event) {
+        tag = event.id
+        
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
         if event.price == "" { // TODO: - perform ternar operatop
@@ -65,6 +74,9 @@ class ContentCell: UITableViewCell {
         
         if ( event.place?.address != nil)   {
             geoLocationLabel.text = event.place?.address
+        } else {
+            geoLocationLabel.isHidden = true
+            geoIcon.isHidden = true
         }
         
     }
