@@ -27,13 +27,6 @@ class ContentCell: UITableViewCell {
         
         initLabels()
         initContainer()
-        
-        let UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapEvent(_:)))
-        self.container.addGestureRecognizer(UIGestureRecognizer)
-    }
-    
-    @objc func tapEvent(_ sender:UITapGestureRecognizer){
-        print("tapped \(self.tag)")
     }
 
     func setupCell(event: Event) {
