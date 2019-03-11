@@ -34,11 +34,31 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="MLg-2p-dVd" id="AIl-2o-mOI"/>
+                        <segue destination="dJ2-rG-WDc" kind="show" identifier="showDetail" id="Ce5-Qa-UwU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEB-lq-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1316" y="-391.75412293853077"/>
+        </scene>
+        <!--DetailEventController-->
+        <scene sceneID="WHg-K6-CQm">
+            <objects>
+                <viewController id="dJ2-rG-WDc" userLabel="DetailEventController" customClass="DetailEventViewController" customModule="whereToGoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sdd-y6-Kxs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3rD-LL-8SH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JOP-xV-GRF"/>
+                    <connections>
+                        <outlet property="container" destination="sdd-y6-Kxs" id="s6q-3y-fCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8TI-wl-h9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="-392"/>
         </scene>
     </scenes>
 </document>

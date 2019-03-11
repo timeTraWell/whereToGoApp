@@ -30,6 +30,7 @@
 		FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D90E222D482F00D763D0 /* EventsService.swift */; };
 		FAE6D911222D69C900D763D0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D910222D69C900D763D0 /* Event.swift */; };
 		FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D91422325BE600D763D0 /* ImagesLoader.swift */; };
+		FAF9DE9E22351FB9001C4A0B /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FAE6D90E222D482F00D763D0 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsService.swift; path = whereToGoApp/Services/EventsService.swift; sourceTree = SOURCE_ROOT; };
 		FAE6D910222D69C900D763D0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FAE6D91422325BE600D763D0 /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
+		FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailEventViewController.swift; path = /Users/nickolaynickitin/swiftProjects/whereToGoApp/whereToGoApp/whereToGoApp/ViewControllers/DetailEventViewController.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		FA900DE122206CF200A03128 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */,
 				FA900D8E221B0B0500A03128 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
@@ -460,6 +463,7 @@
 				FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */,
 				FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */,
 				FAE6D911222D69C900D763D0 /* Event.swift in Sources */,
+				FAF9DE9E22351FB9001C4A0B /* DetailEventViewController.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
 				FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */,
