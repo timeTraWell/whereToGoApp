@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,11 +16,13 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     private let navCellName = String(describing: NavigationCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
+    private let main: MainViewController
 
     // MARK: - Init
 
-    init(events: [Event], tableView: UITableView) {
+    init(events: [Event], main: MainViewController, tableView: UITableView) {
         self.events = events
+        self.main = main
         tableView.register(
             UINib(nibName: titleCellName, bundle: .main),
             forCellReuseIdentifier: titleCellName
@@ -46,13 +47,20 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
         return 2 + events.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.row > 1 {
+            print("select \(events[indexPath.row - 2].id)")
+            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - 2].id)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: navCellName, for: indexPath) as? NavigationCell else {
                     fatalError("re")
             }
-            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: titleCellName, for: indexPath) as? TitleCell else {

@@ -34,11 +34,33 @@ final class MainViewController: UIViewController {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        guard let eventID = sender as? Int else {
+            print("cast error")
+            return
+        }
+        
+        switch (segue.identifier ?? "") {
+        
+            case "showDetail":
+                guard let detailEventViewController = segue.destination as? DetailEventViewController else {
+                    print("segue destination \(segue.destination) error")
+                    return
+                }
+                detailEventViewController.setEventID(id: eventID)
+            default:
+                return
+        }
+    }
 
     // MARK: - Private helpers
 
     private func setupAdapter(events: [Event]) {
-        let adapter = MainTableViewAdapter(events: events, tableView: tableView)
+        let adapter = MainTableViewAdapter(events: events, main: self, tableView: tableView)
         tableView.dataSource = adapter
         tableView.delegate = adapter
         tableView.reloadData()
@@ -48,9 +70,10 @@ final class MainViewController: UIViewController {
     private func setupTableView() {
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
     }
+    
+    
 }
-
