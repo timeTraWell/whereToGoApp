@@ -13,6 +13,7 @@ class Event: Codable {
     let title: String
     let price: String
     let description: String
+    let body_text: String
     let dates: [ResponseDate]?
     let images: [ResponseImage]
     let place: ResponsePlace?
