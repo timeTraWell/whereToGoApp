@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 
 class ImagesLoader {
-    func getImage(_ url:String,handler: @escaping (UIImage?)->Void) {
+    func getImage(_ url:String, handler: @escaping (UIImage?)->Void) {
         print(url)
         Alamofire.request(url, method: .get).responseImage { response in
             if let data = response.result.value {
