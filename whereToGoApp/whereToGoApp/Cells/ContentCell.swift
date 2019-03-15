@@ -30,10 +30,9 @@ class ContentCell: UITableViewCell {
     }
 
     func setupCell(event: Event) {
-        tag = event.id
-        
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
+        
         if event.price == "" { // TODO: - perform ternar operatop
             eventCostLabel.text = "бесплатно"
         } else {
@@ -41,11 +40,10 @@ class ContentCell: UITableViewCell {
         }
         
         guard let date = event.dates?[0] else {
-            print("dateKek")
+            print("date cast error")
             return
         }
         
-//        let startDate = getFormatedDate(intDate: date.start)
         let startDate = DateParser.getFormatedDate(intDate: date.start)
         let endDate = DateParser.getFormatedDate(intDate: date.end)
         
@@ -82,14 +80,14 @@ class ContentCell: UITableViewCell {
         eventDescriptionLabel.font = Fonts.SFProText14
         eventDescriptionLabel.textColor = Color.black
         
-        geoLocationLabel.font = Fonts.SFProText14
-        geoLocationLabel.textColor = Color.gray
-        
-        eventDateLabel.font = Fonts.SFProText14
-        eventDateLabel.textColor = Color.gray
-        
-        eventCostLabel.font = Fonts.SFProText14
-        eventCostLabel.textColor = Color.gray
+        initSubLabels(label: geoLocationLabel)
+        initSubLabels(label: eventDateLabel)
+        initSubLabels(label: eventCostLabel)
+    }
+    
+    private func initSubLabels(label: UILabel) {
+        label.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
+        label.textColor = Color.gray
     }
     
     private func initContainer() {
