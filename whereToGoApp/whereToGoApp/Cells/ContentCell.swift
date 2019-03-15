@@ -45,8 +45,9 @@ class ContentCell: UITableViewCell {
             return
         }
         
-        let startDate = getFormatedDate(intDate: date.start)
-        let endDate = getFormatedDate(intDate: date.end)
+//        let startDate = getFormatedDate(intDate: date.start)
+        let startDate = DateParser.getFormatedDate(intDate: date.start)
+        let endDate = DateParser.getFormatedDate(intDate: date.end)
         
         if (startDate != "error" && endDate != "error") {
             eventDateLabel.text = startDate + " - " + endDate
@@ -72,27 +73,6 @@ class ContentCell: UITableViewCell {
             geoIcon.isHidden = true
         }
         
-    }
-    
-    private func getFormatedDate(intDate: Int) -> String {
-        // convert Int to Double
-        let timeInterval = Double(intDate)
-        
-        // create NSDate from Double (NSTimeInterval)
-        let resultDate = Date(timeIntervalSince1970: timeInterval)
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss" // in this format date get from server
-        
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.locale = Locale(identifier: "ru_RU")
-        dateFormatterPrint.dateFormat = "dd MMMM"
-        
-        if dateFormatterGet.date(from: dateFormatterGet.string(from: resultDate)) != nil {
-            return dateFormatterPrint.string(from: resultDate)
-        } else {
-            return "error"
-        }
     }
     
     private func initLabels()  {
