@@ -13,6 +13,11 @@ final class MainViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loaderView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var internetErrorConectionView: UIView!
+    @IBOutlet weak var errorMessageView: UIView!
+    @IBOutlet weak var errorDescriptorLabel: UILabel!
     
     // MARK: - Properties
     
@@ -29,6 +34,8 @@ final class MainViewController: UIViewController {
             case .data(let events):
                 self.setupAdapter(events: events)
             case .error(let error):
+//                fatalError("inetKEK")
+                self.showInternetConnectionError()
                 print(error)
             }
         }
@@ -39,7 +46,7 @@ final class MainViewController: UIViewController {
         
         super.prepare(for: segue, sender: sender)
         
-        guard let eventID = sender as? Int else {
+        guard let eventData = sender as? Event else {
             print("cast error")
             return
         }
@@ -51,7 +58,7 @@ final class MainViewController: UIViewController {
                     print("segue destination \(segue.destination) error")
                     return
                 }
-                detailEventViewController.setEventID(id: eventID)
+                detailEventViewController.setEvent(event: eventData)
             default:
                 return
         }
@@ -63,6 +70,7 @@ final class MainViewController: UIViewController {
         let adapter = MainTableViewAdapter(events: events, main: self, tableView: tableView)
         tableView.dataSource = adapter
         tableView.delegate = adapter
+        loaderView.isHidden = true
         tableView.reloadData()
         self.adapter = adapter
     }
@@ -75,5 +83,19 @@ final class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 250
     }
     
+    private func showInternetConnectionError() {
+        errorMessageView.backgroundColor = Color.errorRed
+        
+        errorLabel.font = Fonts.SFProText16Reg
+        errorLabel.textColor = Color.white
+        errorLabel.text = "Невозможно загрузить данные, проверьте соединение с интернетом"
+        
+        errorDescriptorLabel.font = Fonts.SFProText14
+        errorDescriptorLabel.textColor = Color.black
+        errorDescriptorLabel.text = "Ошибка загрузки данных, проверьте соединение с интернетом"
+        
+        loaderView.isHidden = true
+        internetErrorConectionView.isHidden = false
+    }
     
 }
