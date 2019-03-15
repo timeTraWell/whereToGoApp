@@ -51,7 +51,7 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row > 1 {
             print("select \(events[indexPath.row - 2].id)")
-            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - 2].id)
+            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - 2])
         }
     }
     
