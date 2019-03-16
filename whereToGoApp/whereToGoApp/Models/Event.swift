@@ -31,4 +31,10 @@ class ResponseImage: Codable {
 
 class ResponsePlace: Codable {
     let address: String
+    let coords: ResponseCoordinates
+}
+
+class ResponseCoordinates: Codable {
+    let lat: Double
+    let lon: Double
 }

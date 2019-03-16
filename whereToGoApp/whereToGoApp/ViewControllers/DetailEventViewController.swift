@@ -55,6 +55,11 @@ class DetailEventViewController: UIViewController {
     // MARK: - Private helpers
     
     private func setupContent() {
+        let lat = event?.place?.coords.lat ?? 55.7522200
+        let lon = event?.place?.coords.lon ?? 37.6155600 // msk coords
+        setupMap(latitude: lat, longitude: lon)
+        
+        //TODO: - Refactor. Set labels to own methods
         eventHeaderLabel.font = Fonts.SFProText20
         eventHeaderLabel.textColor = Color.black
         let eventName = castToString(data: event?.title)
@@ -111,11 +116,16 @@ class DetailEventViewController: UIViewController {
         return resultData
     }
     
-    private func castToInt(value: Int?) -> Int {
-        guard let resultValue = value else {
-            return 0
-        }
-        return resultValue
+    private func setupMap(latitude: Double, longitude: Double) {
+        let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
+        let regionRadius: CLLocationDistance = 1000
+        centerMapOnLocation(location: initialLocation, regionRadius: regionRadius)
+    }
+    
+    func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        map.setRegion(coordinateRegion, animated: true)
     }
     
     private func initSubLabels(subLabel: UILabel) {
