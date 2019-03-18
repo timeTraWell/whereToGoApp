@@ -28,6 +28,14 @@ class ContentCell: UITableViewCell {
         initLabels()
         initContainer()
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clear
+        self.selectedBackgroundView = backgroundView
+    }
 
     func setupCell(event: Event) {
         eventNameLabel.text = event.title

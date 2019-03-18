@@ -14,22 +14,17 @@ class TitleCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        test()
+
         titleLabel.contentMode = .bottom
         titleLabel.font = Fonts.titleFont
         titleLabel.textColor = Color.black
     }
     
-//    func test() {
-//        for name in UIFont.familyNames {
-//            print(name)
-//            if let nameString = name as? String
-//                
-//            {
-//                
-//                print(UIFont.fontNames(forFamilyName: nameString))
-//            }
-//        }
-//    }
-
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clear
+        self.selectedBackgroundView = backgroundView
+    }
 }
