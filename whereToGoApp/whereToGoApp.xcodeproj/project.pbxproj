@@ -10,6 +10,7 @@
 		8568BDDE30D4B35980722522 /* Pods_whereToGoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */; };
 		FA3E4B14223BAB310032861B /* SF-Pro-Text-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */; };
 		FA3E4B16223C457F0032861B /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B15223C457F0032861B /* DateParser.swift */; };
+		FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B182240357A0032861B /* UIButtonExtension.swift */; };
 		FA5D318922246875006A8F2F /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D318722246875006A8F2F /* NavigationCell.swift */; };
 		FA5D318A22246875006A8F2F /* NavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D318822246875006A8F2F /* NavigationCell.xib */; };
 		FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D318B22253B3B006A8F2F /* ContentCell.swift */; };
@@ -58,6 +59,7 @@
 		F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whereToGoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.ttf"; sourceTree = "<group>"; };
 		FA3E4B15223C457F0032861B /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
+		FA3E4B182240357A0032861B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		FA5D318722246875006A8F2F /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
 		FA5D318822246875006A8F2F /* NavigationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationCell.xib; sourceTree = "<group>"; };
 		FA5D318B22253B3B006A8F2F /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA3E4B172240354B0032861B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E4B182240357A0032861B /* UIButtonExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FA5D318F22295A3A006A8F2F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 		FA900D8B221B0B0500A03128 /* whereToGoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA3E4B172240354B0032861B /* Extensions */,
 				FAE6D91C2233E03800D763D0 /* Services */,
 				FAE6D91B2233E02F00D763D0 /* Models */,
 				FA900DE52220714D00A03128 /* Cells */,
@@ -475,6 +486,7 @@
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
 				FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */,
+				FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */,
 				FA900DED222078A700A03128 /* Color.swift in Sources */,
 				FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */,
 			);
