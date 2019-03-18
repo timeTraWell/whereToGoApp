@@ -16,13 +16,25 @@ class NavigationCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupNavButton()
         // Initialization code
     }
+    
+    //MARK: - Private helpers
+    
+    private func setupNavButton() {
+        navButton.titleLabel?.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 17)
+        navButton.setTitleColor(Color.navOrange, for: .normal)
+        
+        navButton.centerTextAndImage(spacing: -6)
+    }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clear
+        self.selectedBackgroundView = backgroundView
+    }
     
 }
