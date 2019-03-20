@@ -35,7 +35,7 @@ class DetailEventViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func buttonBackTouch(_ sender: Any) {
-        self.performSegue(withIdentifier: "backToMain", sender: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
