@@ -28,6 +28,11 @@ class ContentCell: UITableViewCell {
         initLabels()
         initContainer()
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        topImage.image = nil
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
