@@ -13,11 +13,12 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     // MARK:- Properties
 
     private let titleCellName = String(describing: TitleCell.self)
-    private let navCellName = String(describing: NavigationCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
     private let main: MainViewController
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
+    
+    private let countOfIBCells = 1
 
     // MARK: - Init
 
@@ -27,10 +28,6 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
         tableView.register(
             UINib(nibName: titleCellName, bundle: .main),
             forCellReuseIdentifier: titleCellName
-        )
-        tableView.register(
-            UINib(nibName: navCellName, bundle: .main),
-            forCellReuseIdentifier: navCellName
         )
         tableView.register(
             UINib(nibName: contentCell, bundle: .main),
@@ -45,25 +42,20 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 + events.count
+        return countOfIBCells + events.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row > 1 {
-            print("select \(events[indexPath.row - 2].id)")
-            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - 2])
+        if indexPath.row > (countOfIBCells - 1) {
+            print("select \(events[indexPath.row - countOfIBCells].id)")
+            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - countOfIBCells])
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: navCellName, for: indexPath) as? NavigationCell else {
-                    fatalError("re")
-            }
-            return cell
-        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: titleCellName, for: indexPath) as? TitleCell else {
                     fatalError("kek")
                 }
@@ -73,7 +65,7 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     fatalError("keks")
                 }
-            cell.setupCell(event: events[indexPath.row-2])
+            cell.setupCell(event: events[indexPath.row - countOfIBCells])
             return cell
         }
     }
