@@ -17,6 +17,7 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
     private let main: MainViewController
+    var scrollContentIsOverTop: ((CGFloat) -> Void)?
 
     // MARK: - Init
 
@@ -74,6 +75,12 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
                 }
             cell.setupCell(event: events[indexPath.row-2])
             return cell
+        }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= 0 {
+            scrollContentIsOverTop?(scrollView.contentOffset.y)
         }
     }
 }

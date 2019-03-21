@@ -18,28 +18,55 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var internetErrorConectionView: UIView!
     @IBOutlet weak var errorMessageView: UIView!
     @IBOutlet weak var errorDescriptorLabel: UILabel!
+    @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     
     // MARK: - Properties
     
     private var adapter: MainTableViewAdapter?
+    private let refreshControl = UIRefreshControl()
+    private let topViewHeightConst = CGFloat(70)
 
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         setupTableView()
+        setupRefreshControl()
         let service = EventsService()
         service.loadEvents(eventsCount: "5") { (result) in
             switch result {
             case .data(let events):
                 self.setupAdapter(events: events)
             case .error(let error):
-//                fatalError("inetKEK")
                 self.showInternetConnectionError()
                 print(error)
             }
         }
         
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if refreshControl.isRefreshing {
+            let contentOffSet = tableView.contentOffset
+            refreshControl.endRefreshing()
+            refreshControl.beginRefreshing()
+            tableView.contentOffset = contentOffSet
+        }
+    }
+
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(self.refreshTarget), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
+    @objc private func refreshTarget() {
+        let loadingTime: Double = 5.5
+        let dispatchTime: DispatchTime = .now() + loadingTime
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,6 +95,12 @@ final class MainViewController: UIViewController {
 
     private func setupAdapter(events: [Event]) {
         let adapter = MainTableViewAdapter(events: events, main: self, tableView: tableView)
+        adapter.scrollContentIsOverTop = { [weak self] yPosition in
+            guard let vc = self else { return }
+            if yPosition < 20 {
+                vc.topViewHeight.constant = vc.topViewHeightConst - yPosition*2
+            }
+        }
         tableView.dataSource = adapter
         tableView.delegate = adapter
         loaderView.isHidden = true
@@ -97,5 +130,5 @@ final class MainViewController: UIViewController {
         loaderView.isHidden = true
         internetErrorConectionView.isHidden = false
     }
-    
 }
+
