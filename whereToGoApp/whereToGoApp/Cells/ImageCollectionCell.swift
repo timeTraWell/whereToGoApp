@@ -10,9 +10,27 @@ import UIKit
 
 class ImageCollectionCell: UICollectionViewCell {
 
+    //MARK: - IBOutlets
+    @IBOutlet weak var imageContainer: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    public func setImage(respondImageURL: String) {
+        let imgService = ImagesLoader()
+        imgService.getImage(respondImageURL) { (image) in
+            if let imageURL = URL(string: respondImageURL), let placeholder = UIImage(named: "defaultImg") {
+                self.imageContainer.af_setImage(withURL: imageURL, placeholderImage: placeholder)
+            }
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageContainer.image = nil
     }
 
 }
