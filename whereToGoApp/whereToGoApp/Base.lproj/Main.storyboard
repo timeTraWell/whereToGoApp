@@ -234,7 +234,7 @@
                                                     <constraint firstAttribute="height" constant="130" id="yRc-HT-jGy"/>
                                                 </constraints>
                                             </mapView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tKS-Qg-RWq">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="ImageCollectionView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tKS-Qg-RWq">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -327,6 +327,7 @@
                         <outlet property="eventGeoLabel" destination="hkX-cR-mXn" id="Twb-n6-FoX"/>
                         <outlet property="eventHeaderLabel" destination="wXj-MK-zeD" id="cBd-20-9qZ"/>
                         <outlet property="geoIcon" destination="1dL-it-hEl" id="hqB-NB-zK4"/>
+                        <outlet property="imageCollectionView" destination="tKS-Qg-RWq" id="pbN-Q4-Ias"/>
                         <outlet property="map" destination="39u-Hu-Eoj" id="NZK-y1-jxg"/>
                         <outlet property="scrollView" destination="Fu0-t1-azC" id="qha-ct-EIG"/>
                     </connections>

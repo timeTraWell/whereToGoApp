@@ -13,6 +13,7 @@
 		FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B182240357A0032861B /* UIButtonExtension.swift */; };
 		FA4285F122457DAF00E2607C /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4285EF22457DAF00E2607C /* ImageCollectionCell.swift */; };
 		FA4285F222457DAF00E2607C /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4285F022457DAF00E2607C /* ImageCollectionCell.xib */; };
+		FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4285F3224580BC00E2607C /* ImageCollectionViewAdapter.swift */; };
 		FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D318B22253B3B006A8F2F /* ContentCell.swift */; };
 		FA5D318E22253B3B006A8F2F /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D318C22253B3B006A8F2F /* ContentCell.xib */; };
 		FA5D3196222A7366006A8F2F /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */; };
@@ -62,6 +63,7 @@
 		FA3E4B182240357A0032861B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		FA4285EF22457DAF00E2607C /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		FA4285F022457DAF00E2607C /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
+		FA4285F3224580BC00E2607C /* ImageCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		FA5D318B22253B3B006A8F2F /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		FA5D318C22253B3B006A8F2F /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
 		FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */,
+				FA4285F3224580BC00E2607C /* ImageCollectionViewAdapter.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				FAE6D911222D69C900D763D0 /* Event.swift in Sources */,
 				FAF9DE9E22351FB9001C4A0B /* DetailEventViewController.swift in Sources */,
 				FA4285F122457DAF00E2607C /* ImageCollectionCell.swift in Sources */,
+				FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
 				FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */,
