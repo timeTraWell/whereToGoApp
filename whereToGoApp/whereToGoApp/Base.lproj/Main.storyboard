@@ -37,10 +37,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Zgn-OR-XmD" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="36" id="2tm-A6-iaS"/>
+                                    <constraint firstAttribute="trailing" secondItem="AUF-ei-Skl" secondAttribute="trailing" constant="26" id="8It-Qf-Rxy"/>
+                                    <constraint firstItem="AUF-ei-Skl" firstAttribute="leading" secondItem="Zgn-OR-XmD" secondAttribute="trailing" constant="168" id="P18-RQ-PT1"/>
                                     <constraint firstAttribute="height" constant="80" id="Pga-Ta-Hxg"/>
                                     <constraint firstItem="Zgn-OR-XmD" firstAttribute="leading" secondItem="e5P-zg-6IE" secondAttribute="leading" constant="16" id="QUZ-UN-XlC"/>
                                     <constraint firstItem="AUF-ei-Skl" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="29" id="ZYr-IB-7Eh"/>
-                                    <constraint firstAttribute="trailing" secondItem="AUF-ei-Skl" secondAttribute="trailing" constant="26" id="nYs-8P-H2u"/>
                                     <constraint firstItem="AUF-ei-Skl" firstAttribute="centerY" secondItem="Zgn-OR-XmD" secondAttribute="centerY" id="no0-cp-De6"/>
                                     <constraint firstAttribute="bottom" secondItem="Zgn-OR-XmD" secondAttribute="bottom" id="oWA-OS-EPP"/>
                                 </constraints>
