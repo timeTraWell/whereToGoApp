@@ -13,6 +13,7 @@ class DetailEventViewController: UIViewController {
     // MARK: - Properties
     
     private var event: Event?
+    private var adapter: ImageCollectionViewAdapter?
     
     // MARK: - IBOutlets
     
@@ -42,6 +43,7 @@ class DetailEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonBack()
+        setupAdapter()
         setupContent()
         
 //        print(self.eventID)
@@ -54,6 +56,17 @@ class DetailEventViewController: UIViewController {
     
     
     // MARK: - Private helpers
+    
+    private func setupAdapter() {
+        guard let images = event?.images else {
+            return
+        }
+        let adapter = ImageCollectionViewAdapter(collectionView: imageCollectionView, images: images )
+        imageCollectionView.delegate = adapter
+        imageCollectionView.dataSource = adapter
+        imageCollectionView.reloadData()
+        self.adapter = adapter
+    }
     
     private func setupContent() {
         let lat = event?.place?.coords.lat ?? 55.7522200
