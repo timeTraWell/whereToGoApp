@@ -174,12 +174,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-g5-kB4">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="698.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImg" translatesAutoresizingMaskIntoConstraints="NO" id="lKN-cE-ORs">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="260" id="Cgd-jV-S9z"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event header" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-MK-zeD" userLabel="EventHeaderLabel">
                                                 <rect key="frame" x="16" y="284" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -240,16 +234,29 @@
                                                     <constraint firstAttribute="height" constant="130" id="yRc-HT-jGy"/>
                                                 </constraints>
                                             </mapView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tKS-Qg-RWq">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="260" id="GbQ-a6-zTQ"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SBl-R2-S06">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ViZ-cY-ZlV" secondAttribute="trailing" constant="16" id="1qa-Qy-POs"/>
+                                            <constraint firstItem="tKS-Qg-RWq" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" id="3fQ-JL-Cyy"/>
                                             <constraint firstItem="1dL-it-hEl" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" constant="21" id="8nG-Xr-Imx"/>
-                                            <constraint firstItem="lKN-cE-ORs" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" id="AhC-Um-UHa"/>
                                             <constraint firstItem="hkX-cR-mXn" firstAttribute="leading" secondItem="1dL-it-hEl" secondAttribute="trailing" constant="13" id="FxF-lR-Q06"/>
+                                            <constraint firstAttribute="trailing" secondItem="tKS-Qg-RWq" secondAttribute="trailing" id="GYC-tY-GgJ"/>
                                             <constraint firstAttribute="trailing" secondItem="3YB-95-svY" secondAttribute="trailing" constant="16" id="HTa-nS-7RL"/>
-                                            <constraint firstItem="wXj-MK-zeD" firstAttribute="top" secondItem="lKN-cE-ORs" secondAttribute="bottom" constant="24" id="IM2-kv-Oab"/>
-                                            <constraint firstItem="lKN-cE-ORs" firstAttribute="top" secondItem="dJe-g5-kB4" secondAttribute="top" id="IS8-I1-zcT"/>
                                             <constraint firstItem="Osl-Ku-MGr" firstAttribute="top" secondItem="hhq-ov-bUQ" secondAttribute="bottom" constant="16" id="Koz-nZ-hD5"/>
                                             <constraint firstItem="1dL-it-hEl" firstAttribute="centerY" secondItem="hkX-cR-mXn" secondAttribute="centerY" id="L5w-cp-nH9"/>
                                             <constraint firstItem="iHn-Bf-nfk" firstAttribute="centerY" secondItem="Osl-Ku-MGr" secondAttribute="centerY" id="LFH-Oc-Ym8"/>
@@ -267,12 +274,13 @@
                                             <constraint firstItem="39u-Hu-Eoj" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" id="dit-A2-y8k"/>
                                             <constraint firstAttribute="trailing" secondItem="Osl-Ku-MGr" secondAttribute="trailing" constant="24" id="e83-Lb-oae"/>
                                             <constraint firstItem="ViZ-cY-ZlV" firstAttribute="top" secondItem="3YB-95-svY" secondAttribute="bottom" constant="16" id="e9h-v5-2aw"/>
+                                            <constraint firstItem="tKS-Qg-RWq" firstAttribute="top" secondItem="dJe-g5-kB4" secondAttribute="top" id="fnq-RW-Ump"/>
                                             <constraint firstItem="hkX-cR-mXn" firstAttribute="top" secondItem="ViZ-cY-ZlV" secondAttribute="bottom" constant="28" id="gie-52-8L4"/>
                                             <constraint firstAttribute="trailing" secondItem="hkX-cR-mXn" secondAttribute="trailing" constant="24" id="l15-Yv-bx0"/>
-                                            <constraint firstAttribute="trailing" secondItem="lKN-cE-ORs" secondAttribute="trailing" id="mNd-qQ-Lvx"/>
                                             <constraint firstItem="JYQ-lz-zHw" firstAttribute="centerY" secondItem="hhq-ov-bUQ" secondAttribute="centerY" id="nPx-KE-n72"/>
                                             <constraint firstItem="39u-Hu-Eoj" firstAttribute="top" secondItem="Osl-Ku-MGr" secondAttribute="bottom" constant="27" id="qRE-ko-WkH"/>
                                             <constraint firstAttribute="trailing" secondItem="39u-Hu-Eoj" secondAttribute="trailing" id="sNg-KW-pZ2"/>
+                                            <constraint firstItem="wXj-MK-zeD" firstAttribute="top" secondItem="tKS-Qg-RWq" secondAttribute="bottom" constant="24" id="svT-vK-XFl"/>
                                             <constraint firstItem="hhq-ov-bUQ" firstAttribute="top" secondItem="hkX-cR-mXn" secondAttribute="bottom" constant="16" id="tDJ-zQ-8E5"/>
                                         </constraints>
                                     </view>
@@ -350,7 +358,6 @@
         <image name="bottomArrow" width="12" height="6.5"/>
         <image name="costIcon" width="12" height="14"/>
         <image name="dateIcon" width="18" height="18"/>
-        <image name="defaultImg" width="400" height="240"/>
         <image name="geoIcon" width="14" height="18"/>
         <image name="internetError" width="96" height="96"/>
         <image name="leftArrow" width="13" height="22"/>
