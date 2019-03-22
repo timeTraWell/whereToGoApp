@@ -18,13 +18,23 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var internetErrorConectionView: UIView!
     @IBOutlet weak var errorMessageView: UIView!
     @IBOutlet weak var errorDescriptorLabel: UILabel!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var navButton: UIButton!
+    @IBOutlet weak var navigationView: UIView!
+    
+    // MARK: - IBOutlets constraint
+    
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var topLogoMargin: NSLayoutConstraint!
+    @IBOutlet weak var logoHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomLogoMargin: NSLayoutConstraint!
+    
     
     // MARK: - Properties
     
     private var adapter: MainTableViewAdapter?
     private let refreshControl = UIRefreshControl()
-    private let topViewHeightConst = CGFloat(70)
+    private let topViewHeightConst = CGFloat(80)
 
     // MARK: - UIViewController
 
@@ -33,6 +43,12 @@ final class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         setupTableView()
         setupRefreshControl()
+        setupNavButton()
+        loadContent()
+        
+    }
+    
+    private func loadContent() {
         let service = EventsService()
         service.loadEvents(eventsCount: "5") { (result) in
             switch result {
@@ -43,8 +59,13 @@ final class MainViewController: UIViewController {
                 print(error)
             }
         }
-        
     }
+    
+    //MARK: - IBActions
+    @IBAction func onPressNavButton(_ sender: Any) {
+        print("nav button pressed")
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,6 +86,7 @@ final class MainViewController: UIViewController {
         let loadingTime: Double = 5.5
         let dispatchTime: DispatchTime = .now() + loadingTime
         DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
+            self.loadContent()
             self.refreshControl.endRefreshing()
         }
     }
@@ -97,8 +119,14 @@ final class MainViewController: UIViewController {
         let adapter = MainTableViewAdapter(events: events, main: self, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
-            if yPosition < 20 {
-                vc.topViewHeight.constant = vc.topViewHeightConst - yPosition*2
+            if yPosition < 10 {
+                vc.topViewHeight.constant = vc.topViewHeightConst - yPosition
+                
+                vc.modifyNavigationView()
+            }
+            if yPosition == 0 {
+                
+                vc.setNavigationViewToOriginal()
             }
         }
         tableView.dataSource = adapter
@@ -106,6 +134,48 @@ final class MainViewController: UIViewController {
         loaderView.isHidden = true
         tableView.reloadData()
         self.adapter = adapter
+    }
+    
+    private func modifyNavigationView() {
+        navigationView.backgroundColor = Color.blurWhite
+        
+        //add blur
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = navigationView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        navigationView.insertSubview(blurEffectView, at: 0)
+        
+        //change elements and constraints in root view
+        logo.image = UIImage(named: "logoScroll")
+        topLogoMargin.constant = 26
+        logoHeight.constant = 32
+        bottomLogoMargin.constant = 6
+        
+    }
+    
+    private func setNavigationViewToOriginal() {
+        navigationView.backgroundColor = Color.white
+        
+        for subview in navigationView.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        logo.image = UIImage(named: "logoBig")
+        topLogoMargin.constant = 36
+        logoHeight.constant = 44
+        bottomLogoMargin.constant = 0
+    }
+    
+    private func setupNavButton() {
+        navButton.titleLabel?.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 17)
+        navButton.setTitleColor(Color.navOrange, for: .normal)
+        navButton.setTitle("Москва", for: .normal)
+        navButton.centerTextAndImage(spacing: -6)
+        
+        navButton.tintColor = Color.navOrange
     }
 
     private func setupTableView() {

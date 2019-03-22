@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7UQ-Wk-2Jm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YQl-wQ-DiC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,8 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-2p-dVd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-zg-6IE" userLabel="navView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBig" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-OR-XmD">
+                                        <rect key="frame" x="16" y="36" width="107" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="n56-n5-caf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-ei-Skl">
+                                        <rect key="frame" x="291" y="29" width="58" height="58"/>
+                                        <state key="normal" title="Button" image="bottomArrow"/>
+                                        <connections>
+                                            <action selector="onPressNavButton:" destination="7UQ-Wk-2Jm" eventType="touchUpInside" id="FP6-NU-Uch"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Zgn-OR-XmD" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="36" id="2tm-A6-iaS"/>
+                                    <constraint firstAttribute="height" constant="80" id="Pga-Ta-Hxg"/>
+                                    <constraint firstItem="Zgn-OR-XmD" firstAttribute="leading" secondItem="e5P-zg-6IE" secondAttribute="leading" constant="16" id="QUZ-UN-XlC"/>
+                                    <constraint firstItem="AUF-ei-Skl" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="29" id="ZYr-IB-7Eh"/>
+                                    <constraint firstAttribute="trailing" secondItem="AUF-ei-Skl" secondAttribute="trailing" constant="26" id="nYs-8P-H2u"/>
+                                    <constraint firstItem="AUF-ei-Skl" firstAttribute="centerY" secondItem="Zgn-OR-XmD" secondAttribute="centerY" id="no0-cp-De6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zgn-OR-XmD" secondAttribute="bottom" id="oWA-OS-EPP"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-2p-dVd">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viG-Zk-4cW" userLabel="InternetErrorView">
@@ -95,30 +122,42 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MLg-2p-dVd" firstAttribute="top" secondItem="aSp-rE-GFr" secondAttribute="top" id="6NN-cs-6lL"/>
+                            <constraint firstItem="e5P-zg-6IE" firstAttribute="top" secondItem="aSp-rE-GFr" secondAttribute="top" id="05J-PW-exm"/>
                             <constraint firstItem="MLg-2p-dVd" firstAttribute="trailing" secondItem="sTI-Ox-WAW" secondAttribute="trailing" id="6jd-z8-9jW"/>
+                            <constraint firstItem="MLg-2p-dVd" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="bottom" id="A1u-nJ-MIS"/>
                             <constraint firstItem="MLg-2p-dVd" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="CMD-v9-NPl"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="bottom" secondItem="sTI-Ox-WAW" secondAttribute="bottom" id="FRR-ie-y10"/>
+                            <constraint firstItem="e5P-zg-6IE" firstAttribute="trailing" secondItem="sTI-Ox-WAW" secondAttribute="trailing" id="LHf-qH-7iK"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="trailing" secondItem="sTI-Ox-WAW" secondAttribute="trailing" id="e9Y-NJ-vOH"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="jqf-iZ-YfU"/>
+                            <constraint firstItem="e5P-zg-6IE" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="kSz-xB-gQy"/>
                             <constraint firstItem="MLg-2p-dVd" firstAttribute="bottom" secondItem="sTI-Ox-WAW" secondAttribute="bottom" id="kns-fo-ou5"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="top" secondItem="aSp-rE-GFr" secondAttribute="top" id="mVU-Sb-U0I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sTI-Ox-WAW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qHu-kz-AuS"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="bottomLogoMargin" destination="oWA-OS-EPP" id="7I7-sc-w0r"/>
                         <outlet property="errorDescriptorLabel" destination="vcg-uC-yiA" id="hmz-LI-EGu"/>
                         <outlet property="errorLabel" destination="Do2-4d-Czd" id="Fuj-1b-hvU"/>
                         <outlet property="errorMessageView" destination="Swa-Cf-Erb" id="Bbw-RC-tqz"/>
                         <outlet property="internetErrorConectionView" destination="viG-Zk-4cW" id="5Ws-5H-MEk"/>
                         <outlet property="loaderView" destination="vB9-9l-DdI" id="T9b-rU-HgR"/>
+                        <outlet property="logo" destination="Zgn-OR-XmD" id="eHN-Rv-z1O"/>
+                        <outlet property="logoHeight" destination="n56-n5-caf" id="OdP-e7-5Cb"/>
+                        <outlet property="navButton" destination="AUF-ei-Skl" id="5p3-UO-KSy"/>
+                        <outlet property="navigationView" destination="e5P-zg-6IE" id="zJH-vk-AJu"/>
                         <outlet property="tableView" destination="MLg-2p-dVd" id="AIl-2o-mOI"/>
+                        <outlet property="topLogoMargin" destination="2tm-A6-iaS" id="RII-zG-imm"/>
+                        <outlet property="topViewHeight" destination="Pga-Ta-Hxg" id="ZPE-pP-6P2"/>
                         <segue destination="dJ2-rG-WDc" kind="show" identifier="showDetail" id="Ce5-Qa-UwU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEB-lq-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1316" y="-391.75412293853077"/>
+            <point key="canvasLocation" x="-376.80000000000001" y="-391.75412293853077"/>
         </scene>
         <!--DetailEventController-->
         <scene sceneID="WHg-K6-CQm">
@@ -281,20 +320,39 @@
                         <outlet property="geoIcon" destination="1dL-it-hEl" id="hqB-NB-zK4"/>
                         <outlet property="map" destination="39u-Hu-Eoj" id="NZK-y1-jxg"/>
                         <outlet property="scrollView" destination="Fu0-t1-azC" id="qha-ct-EIG"/>
-                        <segue destination="7UQ-Wk-2Jm" kind="show" identifier="backToMain" id="aXb-lQ-dIt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TI-wl-h9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64.799999999999997" y="-392.65367316341832"/>
+            <point key="canvasLocation" x="1004" y="-392.65367316341832"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hix-aY-Pdv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YQl-wQ-DiC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SnV-l4-z7w">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7UQ-Wk-2Jm" kind="relationship" relationship="rootViewController" id="EQ8-pb-ZJP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCE-wL-eAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1316" y="-391.75412293853077"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bottomArrow" width="12" height="6.5"/>
         <image name="costIcon" width="12" height="14"/>
         <image name="dateIcon" width="18" height="18"/>
         <image name="defaultImg" width="400" height="240"/>
         <image name="geoIcon" width="14" height="18"/>
         <image name="internetError" width="96" height="96"/>
         <image name="leftArrow" width="13" height="22"/>
+        <image name="logoBig" width="107" height="44"/>
     </resources>
 </document>
