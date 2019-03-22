@@ -18,6 +18,7 @@ class DetailEventViewController: UIViewController {
     
     @IBOutlet var container: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     
     // MARK: - Labels
     @IBOutlet weak var eventHeaderLabel: UILabel!
