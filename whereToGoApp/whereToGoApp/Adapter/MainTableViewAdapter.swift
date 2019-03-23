@@ -48,7 +48,6 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row > (countOfIBCells - 1) {
-            print("select \(events[indexPath.row - countOfIBCells].id)")
             self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - countOfIBCells])
         }
     }
@@ -57,13 +56,13 @@ final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDe
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: titleCellName, for: indexPath) as? TitleCell else {
-                    fatalError("kek")
+                return UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:titleCellName)
                 }
             cell.titleLabel.text = "Куда сходить"
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
-                    fatalError("keks")
+                    return UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:contentCell)
                 }
             cell.setupCell(event: events[indexPath.row - countOfIBCells])
             return cell
