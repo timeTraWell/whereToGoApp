@@ -38,7 +38,6 @@
                                 <constraints>
                                     <constraint firstItem="Zgn-OR-XmD" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="36" id="2tm-A6-iaS"/>
                                     <constraint firstAttribute="trailing" secondItem="AUF-ei-Skl" secondAttribute="trailing" constant="26" id="8It-Qf-Rxy"/>
-                                    <constraint firstItem="AUF-ei-Skl" firstAttribute="leading" secondItem="Zgn-OR-XmD" secondAttribute="trailing" constant="168" id="P18-RQ-PT1"/>
                                     <constraint firstAttribute="height" constant="80" id="Pga-Ta-Hxg"/>
                                     <constraint firstItem="Zgn-OR-XmD" firstAttribute="leading" secondItem="e5P-zg-6IE" secondAttribute="leading" constant="16" id="QUZ-UN-XlC"/>
                                     <constraint firstItem="AUF-ei-Skl" firstAttribute="top" secondItem="e5P-zg-6IE" secondAttribute="top" constant="29" id="ZYr-IB-7Eh"/>
@@ -247,7 +246,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VhF-cu-BDS">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collecTionCell" id="VhF-cu-BDS">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -257,11 +256,17 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bG5-aH-wUK">
+                                                <rect key="frame" x="168" y="215" width="39" height="37"/>
+                                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="currentPageIndicatorTintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ViZ-cY-ZlV" secondAttribute="trailing" constant="16" id="1qa-Qy-POs"/>
                                             <constraint firstItem="tKS-Qg-RWq" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" id="3fQ-JL-Cyy"/>
+                                            <constraint firstItem="tKS-Qg-RWq" firstAttribute="top" secondItem="dJe-g5-kB4" secondAttribute="top" id="7b1-zX-LjP"/>
                                             <constraint firstItem="1dL-it-hEl" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" constant="21" id="8nG-Xr-Imx"/>
                                             <constraint firstItem="hkX-cR-mXn" firstAttribute="leading" secondItem="1dL-it-hEl" secondAttribute="trailing" constant="13" id="FxF-lR-Q06"/>
                                             <constraint firstAttribute="trailing" secondItem="tKS-Qg-RWq" secondAttribute="trailing" id="GYC-tY-GgJ"/>
@@ -283,10 +288,11 @@
                                             <constraint firstItem="39u-Hu-Eoj" firstAttribute="leading" secondItem="dJe-g5-kB4" secondAttribute="leading" id="dit-A2-y8k"/>
                                             <constraint firstAttribute="trailing" secondItem="Osl-Ku-MGr" secondAttribute="trailing" constant="24" id="e83-Lb-oae"/>
                                             <constraint firstItem="ViZ-cY-ZlV" firstAttribute="top" secondItem="3YB-95-svY" secondAttribute="bottom" constant="16" id="e9h-v5-2aw"/>
-                                            <constraint firstItem="tKS-Qg-RWq" firstAttribute="top" secondItem="dJe-g5-kB4" secondAttribute="top" id="fnq-RW-Ump"/>
                                             <constraint firstItem="hkX-cR-mXn" firstAttribute="top" secondItem="ViZ-cY-ZlV" secondAttribute="bottom" constant="28" id="gie-52-8L4"/>
+                                            <constraint firstItem="bG5-aH-wUK" firstAttribute="centerX" secondItem="tKS-Qg-RWq" secondAttribute="centerX" id="hcS-F2-Sag"/>
                                             <constraint firstAttribute="trailing" secondItem="hkX-cR-mXn" secondAttribute="trailing" constant="24" id="l15-Yv-bx0"/>
                                             <constraint firstItem="JYQ-lz-zHw" firstAttribute="centerY" secondItem="hhq-ov-bUQ" secondAttribute="centerY" id="nPx-KE-n72"/>
+                                            <constraint firstItem="wXj-MK-zeD" firstAttribute="top" secondItem="bG5-aH-wUK" secondAttribute="bottom" constant="32" id="pYh-ev-jsk"/>
                                             <constraint firstItem="39u-Hu-Eoj" firstAttribute="top" secondItem="Osl-Ku-MGr" secondAttribute="bottom" constant="27" id="qRE-ko-WkH"/>
                                             <constraint firstAttribute="trailing" secondItem="39u-Hu-Eoj" secondAttribute="trailing" id="sNg-KW-pZ2"/>
                                             <constraint firstItem="wXj-MK-zeD" firstAttribute="top" secondItem="tKS-Qg-RWq" secondAttribute="bottom" constant="24" id="svT-vK-XFl"/>
@@ -338,6 +344,7 @@
                         <outlet property="geoIcon" destination="1dL-it-hEl" id="hqB-NB-zK4"/>
                         <outlet property="imageCollectionView" destination="tKS-Qg-RWq" id="pbN-Q4-Ias"/>
                         <outlet property="map" destination="39u-Hu-Eoj" id="NZK-y1-jxg"/>
+                        <outlet property="pageControl" destination="bG5-aH-wUK" id="g48-3X-LUC"/>
                         <outlet property="scrollView" destination="Fu0-t1-azC" id="qha-ct-EIG"/>
                     </connections>
                 </viewController>
