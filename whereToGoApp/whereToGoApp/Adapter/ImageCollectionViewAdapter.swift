@@ -12,10 +12,12 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     
     private let cell = String(describing: ImageCollectionCell.self)
     private var images: [ResponseImage]
+    private var pageControl: UIPageControl
     
-    init(collectionView: UICollectionView, images: [ResponseImage]) {
+    init(collectionView: UICollectionView, images: [ResponseImage], imageControl: UIPageControl) {
         collectionView.register(UINib(nibName: cell, bundle: .main), forCellWithReuseIdentifier: cell)
         self.images = images
+        self.pageControl = imageControl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -24,9 +26,14 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let imageCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cell, for: indexPath) as? ImageCollectionCell else {
-            fatalError("imgcolKek")
+            return UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: 375, height: 260))
         }
         imageCollectionCell.setImage(respondImageURL: self.images[indexPath.row].image)
         return imageCollectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let currentCellIndex = collectionView.indexPathsForVisibleItems[0][1]
+        pageControl.currentPage = currentCellIndex
     }
 }
