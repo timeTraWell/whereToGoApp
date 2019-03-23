@@ -120,7 +120,6 @@ final class MainViewController: UIViewController {
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
             if yPosition < 10 {
-                vc.topViewHeight.constant = vc.topViewHeightConst - yPosition
                 
                 vc.modifyNavigationView()
             }
