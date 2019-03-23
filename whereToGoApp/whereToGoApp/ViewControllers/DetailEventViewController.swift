@@ -20,6 +20,7 @@ class DetailEventViewController: UIViewController {
     @IBOutlet var container: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     // MARK: - Labels
     @IBOutlet weak var eventHeaderLabel: UILabel!
@@ -45,9 +46,6 @@ class DetailEventViewController: UIViewController {
         setupButtonBack()
         setupAdapter()
         setupContent()
-        
-//        print(self.eventID)
-        // Do any additional setup after loading the view.
     }
     
     public func setEvent(event: Event) {
@@ -61,7 +59,8 @@ class DetailEventViewController: UIViewController {
         guard let images = event?.images else {
             return
         }
-        let adapter = ImageCollectionViewAdapter(collectionView: imageCollectionView, images: images )
+        pageControl.numberOfPages = images.count
+        let adapter = ImageCollectionViewAdapter(collectionView: imageCollectionView, images: images, imageControl: pageControl)
         imageCollectionView.delegate = adapter
         imageCollectionView.dataSource = adapter
         imageCollectionView.reloadData()
@@ -119,7 +118,7 @@ class DetailEventViewController: UIViewController {
         if (startDate != "error" && endDate != "error") {
             eventDateLabel.text = startDate + " - " + endDate
         } else {
-            print("start or end dataKekys")
+            print("start or end data error")
         }
     }
     
