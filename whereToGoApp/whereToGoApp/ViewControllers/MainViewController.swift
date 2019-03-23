@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
     
     private func loadContent() {
         let service = EventsService()
-        service.loadEvents(eventsCount: "5") { (result) in
+        service.loadEvents(eventsCount: "20") { (result) in
             switch result {
             case .data(let events):
                 self.setupAdapter(events: events)
