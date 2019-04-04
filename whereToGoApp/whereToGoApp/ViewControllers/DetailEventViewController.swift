@@ -30,7 +30,7 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var eventCostLabel: UILabel!
     
-    @IBOutlet weak var geoIcon: UIImageView!
+    @IBOutlet weak var geoView: UIView!
     
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var map: MKMapView!
@@ -96,8 +96,7 @@ class DetailEventViewController: UIViewController {
         if geo != "" {
             eventGeoLabel.text = geo
         } else {
-            eventGeoLabel.isHidden = true
-            geoIcon.isHidden = true
+            geoView.isHidden = true
         }
         
         let price = castToString(data: event?.price)
