@@ -16,9 +16,7 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var geoLocationLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var eventCostLabel: UILabel!
-    @IBOutlet weak var geoIcon: UIImageView!
-    @IBOutlet weak var dateIcon: UIImageView!
-    @IBOutlet weak var costIcon: UIImageView!
+    @IBOutlet weak var geoView: UIView!
     @IBOutlet weak var container: UIView!
 
     override func awakeFromNib() {
@@ -80,8 +78,7 @@ class ContentCell: UITableViewCell {
         if ( event.place?.address != nil)   {
             geoLocationLabel.text = event.place?.address
         } else {
-            geoLocationLabel.isHidden = true
-            geoIcon.isHidden = true
+            geoView.isHidden = true
         }
         
     }
