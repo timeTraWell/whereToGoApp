@@ -134,7 +134,7 @@ class DetailEventViewController: UIViewController {
         centerMapOnLocation(location: initialLocation, regionRadius: regionRadius)
     }
     
-    func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
+    private func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         map.setRegion(coordinateRegion, animated: true)
