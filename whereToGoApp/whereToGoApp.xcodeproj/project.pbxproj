@@ -359,13 +359,16 @@
 				TargetAttributes = {
 					FA900D88221B0B0500A03128 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					FA900D9C221B0B0600A03128 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = FA900D88221B0B0500A03128;
 					};
 					FA900DA7221B0B0600A03128 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = FA900D88221B0B0500A03128;
 					};
 				};
@@ -677,7 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -696,7 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -715,7 +718,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoAppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whereToGoApp.app/whereToGoApp";
 			};
@@ -735,7 +738,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoAppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whereToGoApp.app/whereToGoApp";
 			};
@@ -754,7 +757,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = whereToGoApp;
 			};
@@ -773,7 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.whereToGoAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = whereToGoApp;
 			};
