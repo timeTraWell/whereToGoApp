@@ -17,11 +17,6 @@ enum Result<ResultDataType> {
 
 class EventsService {
     
-    func printInfo(_ value: Any) {
-        let t = type(of: value)
-        print("'\(value)' of type '\(t)'")
-    }
-    
     func loadEvents(eventsCount: String, completion: @escaping (Result<[Event]>) -> Void) {
         let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,place,images,price,title,description,body_text&expand=place&page_size=\(eventsCount)&text_format=text&location=msk"
         Alamofire.request(url, method: .get).responseJSON { response in
