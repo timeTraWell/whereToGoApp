@@ -10,7 +10,7 @@ import Foundation
 
 final class DateParser {
     
-    public static func getFormatedDate(intDate: Int) -> String {
+    static func getFormatedDate(intDate: Int) -> String {
         // convert Int to Double
         let timeInterval = Double(intDate)
         
