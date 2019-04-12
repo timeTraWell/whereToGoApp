@@ -188,11 +188,11 @@ final class MainViewController: UIViewController {
     private func showInternetConnectionError() {
         errorMessageView.backgroundColor = Color.errorRed
         
-        errorLabel.font = Fonts.SFProText16Reg
+        errorLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 16)
         errorLabel.textColor = Color.white
         errorLabel.text = "Невозможно загрузить данные, проверьте соединение с интернетом"
         
-        errorDescriptorLabel.font = Fonts.SFProText14
+        errorDescriptorLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
         errorDescriptorLabel.textColor = Color.black
         errorDescriptorLabel.text = "Ошибка загрузки данных, проверьте соединение с интернетом"
         

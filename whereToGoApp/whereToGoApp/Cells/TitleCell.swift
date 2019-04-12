@@ -16,7 +16,7 @@ class TitleCell: UITableViewCell {
         super.awakeFromNib()
 
         titleLabel.contentMode = .bottom
-        titleLabel.font = Fonts.titleFont
+        titleLabel.font = Fonts.getFont(fontName: "SFProDisplay-Medium", size: 30)
         titleLabel.textColor = Color.black
     }
     

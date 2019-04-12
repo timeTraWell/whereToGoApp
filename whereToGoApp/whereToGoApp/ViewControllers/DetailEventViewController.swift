@@ -73,17 +73,17 @@ class DetailEventViewController: UIViewController {
         setupMap(latitude: lat, longitude: lon)
         
         //TODO: - Refactor. Set labels to own methods
-        eventHeaderLabel.font = Fonts.SFProText20
+        eventHeaderLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 20)
         eventHeaderLabel.textColor = Color.black
         let eventName = castToString(data: event?.title)
         eventHeaderLabel.text = eventName
         
-        eventDescriptionLabel.font = Fonts.SFProTextSemibold
+        eventDescriptionLabel.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 16)
         eventDescriptionLabel.textColor = Color.black
         let eventDescription = castToString(data: event?.description)
         eventDescriptionLabel.text = eventDescription
         
-        eventDetailLabel.font = Fonts.SFProText16Reg
+        eventDetailLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 16)
         eventDetailLabel.textColor = Color.gray
         let eventDetail = castToString(data: event?.body_text)
         eventDetailLabel.text = eventDetail

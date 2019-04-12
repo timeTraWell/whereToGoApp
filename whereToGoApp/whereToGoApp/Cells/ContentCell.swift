@@ -84,10 +84,10 @@ class ContentCell: UITableViewCell {
     }
     
     private func initLabels()  {
-        eventNameLabel.font = Fonts.SFProText16
+        eventNameLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
         eventNameLabel.textColor = Color.black
         
-        eventDescriptionLabel.font = Fonts.SFProText14
+        eventDescriptionLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
         eventDescriptionLabel.textColor = Color.black
         
         initSubLabels(label: geoLocationLabel)
