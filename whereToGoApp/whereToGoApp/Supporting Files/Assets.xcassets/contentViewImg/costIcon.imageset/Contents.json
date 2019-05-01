@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "₽.png",
+      "filename" : "ic_attach_money_black_24px.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "₽ (1).png",
+      "filename" : "ic_attach_money_black_24px (1).png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "₽ (2).png",
+      "filename" : "ic_attach_money_black_24px (2).png",
       "scale" : "3x"
     }
   ],
