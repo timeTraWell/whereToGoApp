@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8568BDDE30D4B35980722522 /* Pods_whereToGoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */; };
+		FA03B754227D76280071A7E5 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03B753227D76280071A7E5 /* DetailEventViewController.swift */; };
 		FA3E4B14223BAB310032861B /* SF-Pro-Text-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */; };
 		FA3E4B16223C457F0032861B /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B15223C457F0032861B /* DateParser.swift */; };
 		FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B182240357A0032861B /* UIButtonExtension.swift */; };
@@ -34,7 +35,6 @@
 		FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D90E222D482F00D763D0 /* EventsService.swift */; };
 		FAE6D911222D69C900D763D0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D910222D69C900D763D0 /* Event.swift */; };
 		FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D91422325BE600D763D0 /* ImagesLoader.swift */; };
-		FAF9DE9E22351FB9001C4A0B /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +58,7 @@
 		24AA68A53A187A5AE11A9E23 /* Pods-whereToGoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereToGoApp.debug.xcconfig"; path = "Target Support Files/Pods-whereToGoApp/Pods-whereToGoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DCD864255BEEDCFE7B0D22EA /* Pods-whereToGoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereToGoApp.release.xcconfig"; path = "Target Support Files/Pods-whereToGoApp/Pods-whereToGoApp.release.xcconfig"; sourceTree = "<group>"; };
 		F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whereToGoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA03B753227D76280071A7E5 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.ttf"; sourceTree = "<group>"; };
 		FA3E4B15223C457F0032861B /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
 		FA3E4B182240357A0032861B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		FAE6D90E222D482F00D763D0 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsService.swift; path = whereToGoApp/Services/EventsService.swift; sourceTree = SOURCE_ROOT; };
 		FAE6D910222D69C900D763D0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FAE6D91422325BE600D763D0 /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
-		FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailEventViewController.swift; path = /Users/nickolaynickitin/swiftProjects/whereToGoApp/whereToGoApp/whereToGoApp/ViewControllers/DetailEventViewController.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +225,7 @@
 		FA900DE122206CF200A03128 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAF9DE9D22351FB9001C4A0B /* DetailEventViewController.swift */,
+				FA03B753227D76280071A7E5 /* DetailEventViewController.swift */,
 				FA900D8E221B0B0500A03128 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
@@ -487,7 +487,7 @@
 				FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */,
 				FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */,
 				FAE6D911222D69C900D763D0 /* Event.swift in Sources */,
-				FAF9DE9E22351FB9001C4A0B /* DetailEventViewController.swift in Sources */,
+				FA03B754227D76280071A7E5 /* DetailEventViewController.swift in Sources */,
 				FA4285F122457DAF00E2607C /* ImageCollectionCell.swift in Sources */,
 				FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
