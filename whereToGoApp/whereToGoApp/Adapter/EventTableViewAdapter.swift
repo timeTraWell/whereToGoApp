@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MainTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class EventTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // MARK:- Properties
 
