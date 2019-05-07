@@ -113,16 +113,22 @@
                                     <constraint firstItem="Swa-Cf-Erb" firstAttribute="leading" secondItem="viG-Zk-4cW" secondAttribute="leading" id="pet-UH-ZeI"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vB9-9l-DdI" userLabel="LoaderView">
-                                <rect key="frame" x="0.0" y="311" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vB9-9l-DdI" userLabel="LoaderView">
+                                <rect key="frame" x="171.5" y="327.5" width="32" height="32"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WmP-A7-bk5">
-                                        <rect key="frame" x="0.0" y="12" width="375" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WmP-A7-bk5">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WmP-A7-bk5" secondAttribute="trailing" id="1eF-5c-aOU"/>
+                                    <constraint firstAttribute="height" constant="32" id="DAK-Cx-EdX"/>
+                                    <constraint firstItem="WmP-A7-bk5" firstAttribute="top" secondItem="vB9-9l-DdI" secondAttribute="top" id="HbI-Mb-WZw"/>
+                                    <constraint firstAttribute="width" constant="32" id="T5s-Si-gzC"/>
+                                    <constraint firstAttribute="bottom" secondItem="WmP-A7-bk5" secondAttribute="bottom" id="Yt7-RX-MCp"/>
+                                    <constraint firstItem="WmP-A7-bk5" firstAttribute="leading" secondItem="vB9-9l-DdI" secondAttribute="leading" id="hnu-BH-TO2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -133,7 +139,9 @@
                             <constraint firstItem="MLg-2p-dVd" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="CMD-v9-NPl"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="bottom" secondItem="sTI-Ox-WAW" secondAttribute="bottom" id="FRR-ie-y10"/>
                             <constraint firstItem="e5P-zg-6IE" firstAttribute="trailing" secondItem="sTI-Ox-WAW" secondAttribute="trailing" id="LHf-qH-7iK"/>
+                            <constraint firstItem="vB9-9l-DdI" firstAttribute="centerX" secondItem="sTI-Ox-WAW" secondAttribute="centerX" id="V8a-rw-bW6"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="trailing" secondItem="sTI-Ox-WAW" secondAttribute="trailing" id="e9Y-NJ-vOH"/>
+                            <constraint firstItem="vB9-9l-DdI" firstAttribute="centerY" secondItem="sTI-Ox-WAW" secondAttribute="centerY" id="jfk-Oi-4Sg"/>
                             <constraint firstItem="viG-Zk-4cW" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="jqf-iZ-YfU"/>
                             <constraint firstItem="e5P-zg-6IE" firstAttribute="leading" secondItem="sTI-Ox-WAW" secondAttribute="leading" id="kSz-xB-gQy"/>
                             <constraint firstItem="MLg-2p-dVd" firstAttribute="bottom" secondItem="sTI-Ox-WAW" secondAttribute="bottom" id="kns-fo-ou5"/>
@@ -419,9 +427,9 @@
     </scenes>
     <resources>
         <image name="bottomArrow" width="12" height="6.5"/>
-        <image name="costIcon" width="11.5" height="14"/>
-        <image name="dateIcon" width="9" height="9"/>
-        <image name="geoIcon" width="7" height="9"/>
+        <image name="costIcon" width="24" height="24"/>
+        <image name="dateIcon" width="24" height="24"/>
+        <image name="geoIcon" width="24" height="24"/>
         <image name="internetError" width="96" height="96"/>
         <image name="leftArrow" width="6.5" height="11"/>
         <image name="logoBig" width="107" height="44"/>
