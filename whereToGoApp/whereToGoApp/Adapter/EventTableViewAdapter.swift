@@ -15,14 +15,14 @@ final class EventTableViewAdapter: NSObject, UITableViewDataSource, UITableViewD
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
-    private let main: MainViewController
+    private let main: EventsViewController
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
     
     private let countOfIBCells = 1
 
     // MARK: - Init
 
-    init(events: [Event], main: MainViewController, tableView: UITableView) {
+    init(events: [Event], main: EventsViewController, tableView: UITableView) {
         self.events = events
         self.main = main
         tableView.register(

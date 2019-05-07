@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class EventsViewController: UIViewController {
 
     // MARK: - IBOutlets
     

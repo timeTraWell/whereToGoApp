@@ -20,7 +20,7 @@
 		FA5D3196222A7366006A8F2F /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3194222A7366006A8F2F /* SF-Pro-Display-Medium.otf */; };
 		FA5D3197222A7366006A8F2F /* SF-Pro-Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3195222A7366006A8F2F /* SF-Pro-Text-Regular.ttf */; };
 		FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8C221B0B0500A03128 /* AppDelegate.swift */; };
-		FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8E221B0B0500A03128 /* MainViewController.swift */; };
+		FA900D8F221B0B0500A03128 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900D8E221B0B0500A03128 /* EventsViewController.swift */; };
 		FA900D92221B0B0500A03128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA900D90221B0B0500A03128 /* Main.storyboard */; };
 		FA900D94221B0B0600A03128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA900D93221B0B0600A03128 /* Assets.xcassets */; };
 		FA900D97221B0B0600A03128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA900D95221B0B0600A03128 /* LaunchScreen.storyboard */; };
@@ -71,7 +71,7 @@
 		FA5D3195222A7366006A8F2F /* SF-Pro-Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.ttf"; sourceTree = "<group>"; };
 		FA900D89221B0B0500A03128 /* whereToGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whereToGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA900D8C221B0B0500A03128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA900D8E221B0B0500A03128 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FA900D8E221B0B0500A03128 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		FA900D91221B0B0500A03128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA900D93221B0B0600A03128 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA900D96221B0B0600A03128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				FA03B753227D76280071A7E5 /* DetailEventViewController.swift */,
-				FA900D8E221B0B0500A03128 /* MainViewController.swift */,
+				FA900D8E221B0B0500A03128 /* EventsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 				FA900DE82220718200A03128 /* TitleCell.swift in Sources */,
 				FA3E4B16223C457F0032861B /* DateParser.swift in Sources */,
 				FA900DEB2220763400A03128 /* Fonts.swift in Sources */,
-				FA900D8F221B0B0500A03128 /* MainViewController.swift in Sources */,
+				FA900D8F221B0B0500A03128 /* EventsViewController.swift in Sources */,
 				FAE6D91522325BE600D763D0 /* ImagesLoader.swift in Sources */,
 				FAE6D911222D69C900D763D0 /* Event.swift in Sources */,
 				FA03B754227D76280071A7E5 /* DetailEventViewController.swift in Sources */,
