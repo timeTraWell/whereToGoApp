@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private let cell = String(describing: ImageCollectionCell.self)
     private var images: [ResponseImage]
@@ -35,5 +35,9 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let currentCellIndex = collectionView.indexPathsForVisibleItems[0][1]
         pageControl.currentPage = currentCellIndex
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 260)
     }
 }
