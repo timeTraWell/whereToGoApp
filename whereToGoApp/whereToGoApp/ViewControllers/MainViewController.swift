@@ -32,7 +32,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var adapter: MainTableViewAdapter?
+    private var adapter: EventsTableViewAdapter?
     private let refreshControl = UIRefreshControl()
     private let topViewHeightConst = CGFloat(80)
 
@@ -116,7 +116,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private helpers
 
     private func setupAdapter(events: [Event]) {
-        let adapter = MainTableViewAdapter(events: events, main: self, tableView: tableView)
+        let adapter = EventsTableViewAdapter(events: events, main: self, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
             if yPosition < 10 {
