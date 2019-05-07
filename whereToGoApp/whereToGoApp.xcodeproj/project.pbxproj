@@ -26,7 +26,7 @@
 		FA900D97221B0B0600A03128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA900D95221B0B0600A03128 /* LaunchScreen.storyboard */; };
 		FA900DA2221B0B0600A03128 /* whereToGoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DA1221B0B0600A03128 /* whereToGoAppTests.swift */; };
 		FA900DAD221B0B0600A03128 /* whereToGoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DAC221B0B0600A03128 /* whereToGoAppUITests.swift */; };
-		FA900DDF2220671700A03128 /* EventsTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DDE2220671700A03128 /* EventsTableViewAdapter.swift */; };
+		FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */; };
 		FA900DE82220718200A03128 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DE62220718200A03128 /* TitleCell.swift */; };
 		FA900DE92220718200A03128 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA900DE72220718200A03128 /* TitleCell.xib */; };
 		FA900DEB2220763400A03128 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DEA2220763400A03128 /* Fonts.swift */; };
@@ -82,7 +82,7 @@
 		FA900DA8221B0B0600A03128 /* whereToGoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whereToGoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA900DAC221B0B0600A03128 /* whereToGoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whereToGoAppUITests.swift; sourceTree = "<group>"; };
 		FA900DAE221B0B0600A03128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA900DDE2220671700A03128 /* EventsTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewAdapter.swift; sourceTree = "<group>"; };
+		FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewAdapter.swift; sourceTree = "<group>"; };
 		FA900DE62220718200A03128 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		FA900DE72220718200A03128 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		FA900DEA2220763400A03128 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		FA900DE022206CBE00A03128 /* Adapter */ = {
 			isa = PBXGroup;
 			children = (
-				FA900DDE2220671700A03128 /* EventsTableViewAdapter.swift */,
+				FA900DDE2220671700A03128 /* MainTableViewAdapter.swift */,
 				FA4285F3224580BC00E2607C /* ImageCollectionViewAdapter.swift */,
 			);
 			path = Adapter;
@@ -492,7 +492,7 @@
 				FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
-				FA900DDF2220671700A03128 /* EventsTableViewAdapter.swift in Sources */,
+				FA900DDF2220671700A03128 /* MainTableViewAdapter.swift in Sources */,
 				FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */,
 				FA900DED222078A700A03128 /* Color.swift in Sources */,
 				FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */,
