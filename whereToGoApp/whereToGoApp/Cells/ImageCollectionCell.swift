@@ -15,12 +15,11 @@ class ImageCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     public func setImage(respondImageURL: String) {
-        let imgService = ImagesLoader()
-        imgService.getImage(respondImageURL) { (image) in
+        let imagesLoader = ImagesLoader()
+        imagesLoader.getImage(respondImageURL) { (image) in
             if let imageURL = URL(string: respondImageURL), let placeholder = UIImage(named: "defaultImg") {
                 self.imageContainer.af_setImage(withURL: imageURL, placeholderImage: placeholder)
             }
