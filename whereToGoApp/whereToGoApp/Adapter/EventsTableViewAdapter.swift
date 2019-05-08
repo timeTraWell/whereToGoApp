@@ -15,16 +15,15 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
-    private let main: EventsViewController
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
+    var didSelectedItem: ( (Int) -> Void )?
     
     private let countOfIBCells = 1
 
     // MARK: - Init
 
-    init(events: [Event], main: EventsViewController, tableView: UITableView) {
+    init(events: [Event], tableView: UITableView) {
         self.events = events
-        self.main = main
         tableView.register(
             UINib(nibName: titleCellName, bundle: .main),
             forCellReuseIdentifier: titleCellName
@@ -44,11 +43,11 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countOfIBCells + events.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row > (countOfIBCells - 1) {
-            self.main.performSegue(withIdentifier: "showDetail", sender: events[indexPath.row - countOfIBCells])
+            didSelectedItem?(indexPath.row - countOfIBCells)
         }
     }
     

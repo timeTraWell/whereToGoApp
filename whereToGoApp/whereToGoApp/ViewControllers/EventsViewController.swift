@@ -35,6 +35,7 @@ final class EventsViewController: UIViewController {
     private var adapter: EventsTableViewAdapter?
     private let refreshControl = UIRefreshControl()
     private let topViewHeightConst = CGFloat(80)
+    private var events: [Event]?
 
     // MARK: - UIViewController
 
@@ -53,6 +54,7 @@ final class EventsViewController: UIViewController {
         service.loadEvents(eventsCount: "20") { (result) in
             switch result {
             case .data(let events):
+                self.events = events
                 self.setupAdapter(events: events)
             case .error(let error):
                 self.showInternetConnectionError()
@@ -116,7 +118,7 @@ final class EventsViewController: UIViewController {
     // MARK: - Private helpers
 
     private func setupAdapter(events: [Event]) {
-        let adapter = EventsTableViewAdapter(events: events, main: self, tableView: tableView)
+        let adapter = EventsTableViewAdapter(events: events, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
             if yPosition < 10 {
@@ -127,6 +129,12 @@ final class EventsViewController: UIViewController {
                 
                 vc.setNavigationViewToOriginal()
             }
+        }
+        adapter.didSelectedItem = { [weak self] index in
+            guard let events = self?.events else {
+                return
+            }
+            self?.performSegue(withIdentifier: "showDetail", sender: events[index])
         }
         tableView.dataSource = adapter
         tableView.delegate = adapter
