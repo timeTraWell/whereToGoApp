@@ -44,13 +44,9 @@ class ContentCell: UITableViewCell {
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
         
-        if event.price == "" { // TODO: - perform ternar operatop
-            eventCostLabel.text = "бесплатно"
-        } else {
-            eventCostLabel.text = event.price
-        }
+        eventCostLabel.text = (event.price == "" ? "бесплатно" : event.price)
         
-        guard let dates = event.dates, dates.isEmpty else {
+        guard let dates = event.dates, !dates.isEmpty else {
             return
         }
         
