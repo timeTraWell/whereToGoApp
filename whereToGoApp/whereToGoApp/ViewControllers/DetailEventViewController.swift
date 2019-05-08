@@ -100,11 +100,7 @@ class DetailEventViewController: UIViewController {
         }
         
         let price = castToString(data: event?.price)
-        if price == "" { // TODO: - perform ternar operatop
-            eventCostLabel.text = "бесплатно"
-        } else {
-            eventCostLabel.text = price
-        }
+        eventCostLabel.text = (price == "" ? "бесплатно" : price)
         
         guard let date = event?.dates?[0] else {
             print("date cast error")
