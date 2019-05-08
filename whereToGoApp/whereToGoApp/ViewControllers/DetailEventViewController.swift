@@ -88,9 +88,9 @@ class DetailEventViewController: UIViewController {
         let eventDetail = castToString(data: event?.body_text)
         eventDetailLabel.text = eventDetail
         
-        initSubLabels(subLabel: eventGeoLabel)
-        initSubLabels(subLabel: eventDateLabel)
-        initSubLabels(subLabel: eventCostLabel)
+        setupDetailEventLabels(label: eventGeoLabel)
+        setupDetailEventLabels(label: eventDateLabel)
+        setupDetailEventLabels(label: eventCostLabel)
         
         let geo = castToString(data: event?.place?.address)
         if geo != "" {
@@ -140,9 +140,9 @@ class DetailEventViewController: UIViewController {
         map.setRegion(coordinateRegion, animated: true)
     }
     
-    private func initSubLabels(subLabel: UILabel) {
-        subLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
-        subLabel.textColor = Color.gray
+    private func setupDetailEventLabels(label: UILabel) {
+        label.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
+        label.textColor = Color.gray
     }
     
     private func setupButtonBack() {
