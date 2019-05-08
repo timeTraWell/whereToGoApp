@@ -50,6 +50,11 @@ class ContentCell: UITableViewCell {
             eventCostLabel.text = event.price
         }
         
+        guard (event.dates?.isEmpty) != nil else {
+            print("empty date")
+            return
+        }
+        
         guard let date = event.dates?[0] else {
             print("date cast error")
             return
@@ -70,7 +75,8 @@ class ContentCell: UITableViewCell {
         
         let imgService = ImagesLoader()
         imgService.getImage(event.images[0].image) { (image) in
-            if let imageURL = URL(string: event.images[0].image), let placeholder = UIImage(named: "defaultImg") {
+            if let imageURL = URL(string: event.images[0].image),
+                let placeholder = UIImage(named: "defaultImg") {
                 self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
             }
         }
