@@ -18,23 +18,3 @@ class Event: Codable {
     let images: [ResponseImage]
     let place: ResponsePlace?
 }
-
-class ResponseDate: Codable {
-    let start: Int
-    let end: Int
-    
-}
-
-class ResponseImage: Codable {
-    let image: String
-}
-
-class ResponsePlace: Codable {
-    let address: String
-    let coords: ResponseCoordinates
-}
-
-class ResponseCoordinates: Codable {
-    let lat: Double
-    let lon: Double
-}
