@@ -50,15 +50,11 @@ class ContentCell: UITableViewCell {
             eventCostLabel.text = event.price
         }
         
-        guard (event.dates?.isEmpty) != nil else {
-            print("empty date")
+        guard let dates = event.dates, dates.isEmpty else {
             return
         }
         
-        guard let date = event.dates?[0] else {
-            print("date cast error")
-            return
-        }
+        let date = dates[0]
         
         let startDate = DateParser.getFormatedDate(intDate: date.start)
         let endDate = DateParser.getFormatedDate(intDate: date.end)
@@ -74,6 +70,12 @@ class ContentCell: UITableViewCell {
         topImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let imagesLoader = ImagesLoader()
+        
+        if event.images.isEmpty {
+            print("missing images")
+            return
+        }
+        
         imagesLoader.getImage(event.images[0].image) { (image) in
             if let imageURL = URL(string: event.images[0].image),
                 let placeholder = UIImage(named: "defaultImg") {
