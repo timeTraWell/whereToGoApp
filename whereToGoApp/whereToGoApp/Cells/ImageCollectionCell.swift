@@ -13,7 +13,6 @@ class ImageCollectionCell: UICollectionViewCell {
     //MARK: - IBOutlets
     @IBOutlet weak var imageContainer: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
