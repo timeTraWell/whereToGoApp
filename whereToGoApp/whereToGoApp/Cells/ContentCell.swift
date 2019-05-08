@@ -94,12 +94,12 @@ class ContentCell: UITableViewCell {
         eventDescriptionLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
         eventDescriptionLabel.textColor = Color.black
         
-        initSubLabels(label: geoLocationLabel)
-        initSubLabels(label: eventDateLabel)
-        initSubLabels(label: eventCostLabel)
+        setupDetailEventLabels(label: geoLocationLabel)
+        setupDetailEventLabels(label: eventDateLabel)
+        setupDetailEventLabels(label: eventCostLabel)
     }
     
-    private func initSubLabels(label: UILabel) {
+    private func setupDetailEventLabels(label: UILabel) {
         label.font = Fonts.getFont(fontName: "SFProText-Regular", size: 14)
         label.textColor = Color.gray
     }
