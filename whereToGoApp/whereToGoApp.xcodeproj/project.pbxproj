@@ -31,6 +31,10 @@
 		FA900DE92220718200A03128 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA900DE72220718200A03128 /* TitleCell.xib */; };
 		FA900DEB2220763400A03128 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DEA2220763400A03128 /* Fonts.swift */; };
 		FA900DED222078A700A03128 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA900DEC222078A700A03128 /* Color.swift */; };
+		FAE486672282E6AA00421E17 /* ResponseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE486662282E6AA00421E17 /* ResponseDate.swift */; };
+		FAE486692282E6D400421E17 /* ResponseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE486682282E6D400421E17 /* ResponseImage.swift */; };
+		FAE4866B2282E71800421E17 /* ResponsePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4866A2282E71800421E17 /* ResponsePlace.swift */; };
+		FAE4866D2282E77B00421E17 /* ResponseCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4866C2282E77B00421E17 /* ResponseCoordinates.swift */; };
 		FAE6D90D222D432D00D763D0 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE6D90C222D432D00D763D0 /* SF-Pro-Text-Bold.ttf */; };
 		FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D90E222D482F00D763D0 /* EventsService.swift */; };
 		FAE6D911222D69C900D763D0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6D910222D69C900D763D0 /* Event.swift */; };
@@ -87,6 +91,10 @@
 		FA900DE72220718200A03128 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		FA900DEA2220763400A03128 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		FA900DEC222078A700A03128 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		FAE486662282E6AA00421E17 /* ResponseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDate.swift; sourceTree = "<group>"; };
+		FAE486682282E6D400421E17 /* ResponseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseImage.swift; sourceTree = "<group>"; };
+		FAE4866A2282E71800421E17 /* ResponsePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePlace.swift; sourceTree = "<group>"; };
+		FAE4866C2282E77B00421E17 /* ResponseCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCoordinates.swift; sourceTree = "<group>"; };
 		FAE6D90C222D432D00D763D0 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
 		FAE6D90E222D482F00D763D0 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsService.swift; path = whereToGoApp/Services/EventsService.swift; sourceTree = SOURCE_ROOT; };
 		FAE6D910222D69C900D763D0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -276,6 +284,10 @@
 			isa = PBXGroup;
 			children = (
 				FAE6D910222D69C900D763D0 /* Event.swift */,
+				FAE486662282E6AA00421E17 /* ResponseDate.swift */,
+				FAE486682282E6D400421E17 /* ResponseImage.swift */,
+				FAE4866A2282E71800421E17 /* ResponsePlace.swift */,
+				FAE4866C2282E77B00421E17 /* ResponseCoordinates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE4866D2282E77B00421E17 /* ResponseCoordinates.swift in Sources */,
 				FA900DE82220718200A03128 /* TitleCell.swift in Sources */,
 				FA3E4B16223C457F0032861B /* DateParser.swift in Sources */,
 				FA900DEB2220763400A03128 /* Fonts.swift in Sources */,
@@ -491,10 +504,13 @@
 				FA4285F122457DAF00E2607C /* ImageCollectionCell.swift in Sources */,
 				FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
+				FAE486672282E6AA00421E17 /* ResponseDate.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
 				FA900DDF2220671700A03128 /* EventsTableViewAdapter.swift in Sources */,
 				FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */,
+				FAE4866B2282E71800421E17 /* ResponsePlace.swift in Sources */,
 				FA900DED222078A700A03128 /* Color.swift in Sources */,
+				FAE486692282E6D400421E17 /* ResponseImage.swift in Sources */,
 				FA5D318D22253B3B006A8F2F /* ContentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
