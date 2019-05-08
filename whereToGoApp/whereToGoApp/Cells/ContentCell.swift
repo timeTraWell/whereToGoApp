@@ -58,7 +58,7 @@ class ContentCell: UITableViewCell {
         if (startDate != "error" && endDate != "error") {
             eventDateLabel.text = startDate + " - " + endDate
         } else {
-            print("start or end dataKekys")
+            print("start or end date error")
         }
         
         topImage.layer.masksToBounds = true
@@ -69,13 +69,12 @@ class ContentCell: UITableViewCell {
         
         if event.images.isEmpty {
             print("missing images")
-            return
-        }
-        
-        imagesLoader.getImage(event.images[0].image) { (image) in
-            if let imageURL = URL(string: event.images[0].image),
-                let placeholder = UIImage(named: "defaultImg") {
-                self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
+        } else {
+            imagesLoader.getImage(event.images[0].image) { (image) in
+                if let imageURL = URL(string: event.images[0].image),
+                    let placeholder = UIImage(named: "defaultImg") {
+                    self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
+                }
             }
         }
         
