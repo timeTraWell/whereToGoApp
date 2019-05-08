@@ -73,8 +73,8 @@ class ContentCell: UITableViewCell {
         topImage.layer.cornerRadius = 12
         topImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        let imgService = ImagesLoader()
-        imgService.getImage(event.images[0].image) { (image) in
+        let imagesLoader = ImagesLoader()
+        imagesLoader.getImage(event.images[0].image) { (image) in
             if let imageURL = URL(string: event.images[0].image),
                 let placeholder = UIImage(named: "defaultImg") {
                 self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
