@@ -25,19 +25,19 @@ class EventsService {
             }
             
             guard let json = response.result.value as? [String: Any] else {
-                return completion(.error("dataKek"))
+                return completion(.error("data response error"))
             }
                 
             guard let resultsEvents = json["results"]  else {
-                return completion(.error("dataKek"))
+                return completion(.error("results in response missing"))
             }
                 
             guard let data = try? JSONSerialization.data(withJSONObject: resultsEvents, options: JSONSerialization.WritingOptions.prettyPrinted) else {
-                return completion(.error("serializeKek"))
+                return completion(.error("serialize error"))
             }
                 
             guard let events = try? JSONDecoder().decode([Event].self, from: data) else {
-                return completion(.error("mappingKek"))
+                return completion(.error("mapping error"))
             }
             return completion(.data(events))
         }
