@@ -93,14 +93,17 @@ class DetailEventViewController: UIViewController {
         
         let date = dates[0]
         
-        let startDate = DateParser.getFormatedDate(intDate: date.start)
-        let endDate = DateParser.getFormatedDate(intDate: date.end)
-        
-        if (startDate != "error" && endDate != "error") {
-            eventDateLabel.text = startDate + " - " + endDate
-        } else {
-            print("start or end data error")
+        guard let startDate = DateParser.getFormatedDate(intDate: date.start) else {
+            print("start date error")
+            return
         }
+        
+        guard let endDate = DateParser.getFormatedDate(intDate: date.end) else {
+            print("end date error")
+            return
+        }
+        
+        eventDateLabel.text = startDate + " - " + endDate
     }
     
     private func setupEventHeaderLabel(label: UILabel) {
