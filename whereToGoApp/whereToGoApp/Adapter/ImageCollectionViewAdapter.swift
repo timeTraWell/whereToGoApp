@@ -34,7 +34,11 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let currentCellIndex = collectionView.indexPathsForVisibleItems[0][1]
-        pageControl.currentPage = currentCellIndex
+        if (currentCellIndex > pageControl.numberOfPages) {
+            pageControl.currentPage = pageControl.numberOfPages
+        } else {
+            pageControl.currentPage = currentCellIndex
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
