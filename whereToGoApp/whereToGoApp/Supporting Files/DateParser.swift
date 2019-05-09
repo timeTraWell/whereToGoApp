@@ -10,7 +10,7 @@ import Foundation
 
 final class DateParser {
     
-    static func getFormatedDate(intDate: Int) -> String {
+    static func getFormatedDate(intDate: Int) -> String? {
         // convert Int to Double
         let timeInterval = Double(intDate)
         
@@ -24,10 +24,6 @@ final class DateParser {
         dateFormatterPrint.locale = Locale(identifier: "ru_RU")
         dateFormatterPrint.dateFormat = "dd MMMM"
         
-        if dateFormatterGet.date(from: dateFormatterGet.string(from: resultDate)) != nil {
-            return dateFormatterPrint.string(from: resultDate)
-        } else {
-            return "error"
-        }
+        return dateFormatterPrint.string(from: resultDate)
     }
 }
