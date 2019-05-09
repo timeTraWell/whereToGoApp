@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8568BDDE30D4B35980722522 /* Pods_whereToGoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */; };
 		FA03B754227D76280071A7E5 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03B753227D76280071A7E5 /* DetailEventViewController.swift */; };
-		FA22E2F82284BD8F00E73DAC /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22E2F72284BD8F00E73DAC /* ImagesService.swift */; };
 		FA3E4B14223BAB310032861B /* SF-Pro-Text-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */; };
 		FA3E4B16223C457F0032861B /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B15223C457F0032861B /* DateParser.swift */; };
 		FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E4B182240357A0032861B /* UIButtonExtension.swift */; };
@@ -63,7 +62,6 @@
 		DCD864255BEEDCFE7B0D22EA /* Pods-whereToGoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereToGoApp.release.xcconfig"; path = "Target Support Files/Pods-whereToGoApp/Pods-whereToGoApp.release.xcconfig"; sourceTree = "<group>"; };
 		F2B9F30EB2E063F5F5941EBC /* Pods_whereToGoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whereToGoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA03B753227D76280071A7E5 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
-		FA22E2F72284BD8F00E73DAC /* ImagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		FA3E4B13223BAB310032861B /* SF-Pro-Text-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.ttf"; sourceTree = "<group>"; };
 		FA3E4B15223C457F0032861B /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
 		FA3E4B182240357A0032861B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		FAE6D91C2233E03800D763D0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA22E2F72284BD8F00E73DAC /* ImagesService.swift */,
 				FAE6D90E222D482F00D763D0 /* EventsService.swift */,
 			);
 			path = Services;
@@ -504,7 +501,6 @@
 				FA4285F4224580BC00E2607C /* ImageCollectionViewAdapter.swift in Sources */,
 				FAE6D90F222D482F00D763D0 /* EventsService.swift in Sources */,
 				FAE486672282E6AA00421E17 /* ResponseDate.swift in Sources */,
-				FA22E2F82284BD8F00E73DAC /* ImagesService.swift in Sources */,
 				FA900D8D221B0B0500A03128 /* AppDelegate.swift in Sources */,
 				FA900DDF2220671700A03128 /* EventsTableViewAdapter.swift in Sources */,
 				FA3E4B192240357A0032861B /* UIButtonExtension.swift in Sources */,
