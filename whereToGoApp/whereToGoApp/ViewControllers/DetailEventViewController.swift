@@ -72,21 +72,9 @@ class DetailEventViewController: UIViewController {
         let lon = event?.place?.coords.lon ?? 37.6155600 // msk coords
         setupMap(latitude: lat, longitude: lon)
         
-        //TODO: - Refactor. Set labels to own methods
-        eventHeaderLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 20)
-        eventHeaderLabel.textColor = Color.black
-        let eventName = castToString(data: event?.title)
-        eventHeaderLabel.text = eventName
-        
-        eventDescriptionLabel.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 16)
-        eventDescriptionLabel.textColor = Color.black
-        let eventDescription = castToString(data: event?.description)
-        eventDescriptionLabel.text = eventDescription
-        
-        eventDetailLabel.font = Fonts.getFont(fontName: "SFProText-Regular", size: 16)
-        eventDetailLabel.textColor = Color.gray
-        let eventDetail = castToString(data: event?.body_text)
-        eventDetailLabel.text = eventDetail
+        setupEventHeaderLabel(label: eventHeaderLabel)
+        setupEventDescriptionLabel(label: eventDescriptionLabel)
+        setupEventDetailLabel(label: eventDetailLabel)
         
         setupDetailEventLabels(label: eventGeoLabel)
         setupDetailEventLabels(label: eventDateLabel)
@@ -115,6 +103,27 @@ class DetailEventViewController: UIViewController {
         } else {
             print("start or end data error")
         }
+    }
+    
+    private func setupEventHeaderLabel(label: UILabel) {
+        label.font = Fonts.getFont(fontName: "SFProText-Bold", size: 20)
+        label.textColor = Color.black
+        let eventName = castToString(data: event?.title)
+        label.text = eventName
+    }
+    
+    private func setupEventDescriptionLabel(label: UILabel) {
+        label.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 16)
+        label.textColor = Color.black
+        let eventDescription = castToString(data: event?.description)
+        label.text = eventDescription
+    }
+    
+    private func setupEventDetailLabel(label: UILabel) {
+        label.font = Fonts.getFont(fontName: "SFProText-Regular", size: 16)
+        label.textColor = Color.gray
+        let eventDetail = castToString(data: event?.body_text)
+        label.text = eventDetail
     }
     
     private func castToString(data: String?) -> String {
