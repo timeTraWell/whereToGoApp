@@ -11,12 +11,10 @@ import MapKit
 class DetailEventViewController: UIViewController {
     
     // MARK: - Properties
-    
     private var event: Event?
     private var adapter: ImageCollectionViewAdapter?
     
     // MARK: - IBOutlets
-    
     @IBOutlet var container: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
@@ -36,7 +34,6 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     
     // MARK: - IBActions
-    
     @IBAction func buttonBackTouch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -90,10 +87,11 @@ class DetailEventViewController: UIViewController {
         let price = castToString(data: event?.price)
         eventCostLabel.text = (price == "" ? "бесплатно" : price)
         
-        guard let date = event?.dates?[0] else {
-            print("date cast error")
+        guard let dates = event?.dates, !dates.isEmpty else {
             return
         }
+        
+        let date = dates[0]
         
         let startDate = DateParser.getFormatedDate(intDate: date.start)
         let endDate = DateParser.getFormatedDate(intDate: date.end)
