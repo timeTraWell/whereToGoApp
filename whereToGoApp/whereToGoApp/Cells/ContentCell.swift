@@ -68,17 +68,13 @@ class ContentCell: UITableViewCell {
         topImage.layer.cornerRadius = 12
         topImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        let imagesLoader = ImagesLoader()
-        
         if event.images.isEmpty {
             print("missing images")
         } else {
-            imagesLoader.getImage(event.images[0].image) { (image) in
                 if let imageURL = URL(string: event.images[0].image),
                     let placeholder = UIImage(named: "defaultImg") {
                     self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
                 }
-            }
         }
         
         if ( event.place?.address != nil)   {

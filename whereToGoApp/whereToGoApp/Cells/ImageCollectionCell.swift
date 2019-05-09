@@ -18,12 +18,9 @@ class ImageCollectionCell: UICollectionViewCell {
     }
     
     public func setImage(respondImageURL: String) {
-        let imagesLoader = ImagesLoader()
-        imagesLoader.getImage(respondImageURL) { (image) in
             if let imageURL = URL(string: respondImageURL), let placeholder = UIImage(named: "defaultImg") {
                 self.imageContainer.af_setImage(withURL: imageURL, placeholderImage: placeholder)
             }
-        }
     }
     
     override func prepareForReuse() {
