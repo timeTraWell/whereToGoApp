@@ -98,7 +98,6 @@ final class EventsViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         guard let eventData = sender as? Event else {
-            print("cast error")
             return
         }
         
@@ -106,7 +105,6 @@ final class EventsViewController: UIViewController {
         
             case "showDetail":
                 guard let detailEventViewController = segue.destination as? DetailEventViewController else {
-                    print("segue destination \(segue.destination) error")
                     return
                 }
                 detailEventViewController.setEvent(event: eventData)
