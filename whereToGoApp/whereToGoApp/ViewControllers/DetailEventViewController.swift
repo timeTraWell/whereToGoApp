@@ -94,12 +94,10 @@ class DetailEventViewController: UIViewController {
         let date = dates[0]
         
         guard let startDate = DateParser.getFormatedDate(intDate: date.start) else {
-            print("start date error")
             return
         }
         
         guard let endDate = DateParser.getFormatedDate(intDate: date.end) else {
-            print("end date error")
             return
         }
         
