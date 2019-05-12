@@ -54,12 +54,10 @@ class ContentCell: UITableViewCell {
         let date = dates[0]
         
         guard let startDate = DateParser.getFormatedDate(intDate: date.start) else {
-            print("start date error")
             return
         }
         
         guard let endDate = DateParser.getFormatedDate(intDate: date.end) else {
-            print("end date error")
             return
         }
         
@@ -69,13 +67,11 @@ class ContentCell: UITableViewCell {
         topImage.layer.cornerRadius = 12
         topImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if event.images.isEmpty {
-            print("missing images")
-        } else {
-                if let imageURL = URL(string: event.images[0].image),
-                    let placeholder = UIImage(named: "defaultImg") {
-                    self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
-                }
+        if !event.images.isEmpty {
+            if let imageURL = URL(string: event.images[0].image),
+                let placeholder = UIImage(named: "defaultImg") {
+                self.topImage.af_setImage(withURL: imageURL, placeholderImage: placeholder) //set image automatically when download compelete.
+            }
         }
         
         if ( event.place?.address != nil)   {
