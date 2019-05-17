@@ -18,7 +18,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
     var didSelectItem: ( (Int) -> Void )?
     
-    private let countOfIBCells = 1
+    private let fixedContentCells = 1
 
     // MARK: - Init
 
@@ -41,13 +41,13 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countOfIBCells + events.count
+        return fixedContentCells + events.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row > (countOfIBCells - 1) {
-            didSelectItem?(indexPath.row - countOfIBCells)
+        if indexPath.row > (fixedContentCells - 1) {
+            didSelectItem?(indexPath.row - fixedContentCells)
         }
     }
     
@@ -63,7 +63,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     return UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:contentCell)
                 }
-            cell.setupCell(event: events[indexPath.row - countOfIBCells])
+            cell.setupCell(event: events[indexPath.row - fixedContentCells])
             return cell
         }
     }
