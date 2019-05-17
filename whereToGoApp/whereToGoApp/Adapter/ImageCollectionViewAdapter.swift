@@ -26,7 +26,7 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let imageCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cell, for: indexPath) as? ImageCollectionCell else {
-            return UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: 375, height: 260))
+            return UICollectionViewCell()
         }
         imageCollectionCell.setImage(respondImageURL: self.images[indexPath.row].image)
         return imageCollectionCell
