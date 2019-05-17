@@ -16,7 +16,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
-    var didSelectedItem: ( (Int) -> Void )?
+    var didSelectItem: ( (Int) -> Void )?
     
     private let countOfIBCells = 1
 
@@ -47,7 +47,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row > (countOfIBCells - 1) {
-            didSelectedItem?(indexPath.row - countOfIBCells)
+            didSelectItem?(indexPath.row - countOfIBCells)
         }
     }
     

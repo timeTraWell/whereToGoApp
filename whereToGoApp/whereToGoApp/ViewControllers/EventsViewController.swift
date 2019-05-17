@@ -128,7 +128,7 @@ final class EventsViewController: UIViewController {
                 vc.setNavigationViewToOriginal()
             }
         }
-        adapter.didSelectedItem = { [weak self] index in
+        adapter.didSelectItem = { [weak self] index in
             guard let events = self?.events else {
                 return
             }
