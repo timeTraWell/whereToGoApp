@@ -10,8 +10,7 @@ import UIKit
 
 final class EventsViewController: UIViewController {
 
-    // MARK: - IBOutlets
-    
+    //MARK:- IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var errorLabel: UILabel!
@@ -22,23 +21,20 @@ final class EventsViewController: UIViewController {
     @IBOutlet weak var navButton: UIButton!
     @IBOutlet weak var navigationView: UIView!
     
-    // MARK: - IBOutlets constraint
-    
+    //MARK:- IBOutlets constraint
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     @IBOutlet weak var topLogoMargin: NSLayoutConstraint!
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomLogoMargin: NSLayoutConstraint!
     
     
-    // MARK: - Properties
-    
+    //MARK:- Properties
     private var adapter: EventsTableViewAdapter?
     private let refreshControl = UIRefreshControl()
     private let topViewHeightConst = CGFloat(80)
     private var events: [Event]?
 
-    // MARK: - UIViewController
-
+    //MARK:- UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -46,29 +42,8 @@ final class EventsViewController: UIViewController {
         setupRefreshControl()
         setupNavButton()
         loadContent()
-        
     }
     
-    private func loadContent() {
-        let service = EventsService()
-        service.loadEvents(eventsCount: "20") { (result) in
-            switch result {
-            case .data(let events):
-                self.events = events
-                self.setupAdapter(events: events)
-            case .error(let error):
-                self.showInternetConnectionError()
-                print(error)
-            }
-        }
-    }
-    
-    //MARK: - IBActions
-    @IBAction func onPressNavButton(_ sender: Any) {
-        print("nav button pressed")
-    }
-    
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if refreshControl.isRefreshing {
@@ -78,43 +53,30 @@ final class EventsViewController: UIViewController {
             tableView.contentOffset = contentOffSet
         }
     }
-
-    private func setupRefreshControl() {
-        refreshControl.addTarget(self, action: #selector(self.refreshTarget), for: .valueChanged)
-        tableView.refreshControl = refreshControl
-    }
-
-    @objc private func refreshTarget() {
-        let loadingTime: Double = 5.5
-        let dispatchTime: DispatchTime = .now() + loadingTime
-        DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
-            self.loadContent()
-            self.refreshControl.endRefreshing()
-        }
+    
+    //MARK:- IBAction
+    @IBAction func onPressNavButton(_ sender: Any) {
+        print("nav button pressed")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //MARK:- Private helpers
+    private func modifyNavigationView() {
+        navigationView.backgroundColor = Color.blurWhite
         
-        super.prepare(for: segue, sender: sender)
+        //add blur
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = navigationView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        navigationView.insertSubview(blurEffectView, at: 0)
         
-        guard let eventData = sender as? Event else {
-            return
-        }
-        
-        switch (segue.identifier ?? "") {
-        
-            case "showDetail":
-                guard let detailEventViewController = segue.destination as? DetailEventViewController else {
-                    return
-                }
-                detailEventViewController.setEvent(event: eventData)
-            default:
-                return
-        }
+        //change elements and constraints in root view
+        logo.image = UIImage(named: "logoScroll")
+        topLogoMargin.constant = 26
+        logoHeight.constant = 32
+        bottomLogoMargin.constant = 6
     }
-
-    // MARK: - Private helpers
-
+    
     private func setupAdapter(events: [Event]) {
         let adapter = EventsTableViewAdapter(events: events, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
@@ -141,22 +103,32 @@ final class EventsViewController: UIViewController {
         self.adapter = adapter
     }
     
-    private func modifyNavigationView() {
-        navigationView.backgroundColor = Color.blurWhite
-        
-        //add blur
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = navigationView.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        navigationView.insertSubview(blurEffectView, at: 0)
-        
-        //change elements and constraints in root view
-        logo.image = UIImage(named: "logoScroll")
-        topLogoMargin.constant = 26
-        logoHeight.constant = 32
-        bottomLogoMargin.constant = 6
-        
+    private func loadContent() {
+        let service = EventsService()
+        service.loadEvents(eventsCount: "20") { (result) in
+            switch result {
+            case .data(let events):
+                self.events = events
+                self.setupAdapter(events: events)
+            case .error(let error):
+                self.showInternetConnectionError()
+                print(error)
+            }
+        }
+    }
+    
+    @objc private func refreshTarget() {
+        let loadingTime: Double = 5.5
+        let dispatchTime: DispatchTime = .now() + loadingTime
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
+            self.loadContent()
+            self.refreshControl.endRefreshing()
+        }
+    }
+
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(self.refreshTarget), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func setNavigationViewToOriginal() {
@@ -204,6 +176,27 @@ final class EventsViewController: UIViewController {
         
         loaderView.isHidden = true
         internetErrorConectionView.isHidden = false
+    }
+    
+    //MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        guard let eventData = sender as? Event else {
+            return
+        }
+        
+        switch (segue.identifier ?? "") {
+            
+        case "showDetail":
+            guard let detailEventViewController = segue.destination as? DetailEventViewController else {
+                return
+            }
+            detailEventViewController.setEvent(event: eventData)
+        default:
+            return
+        }
     }
 }
 
