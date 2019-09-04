@@ -12,7 +12,7 @@ import Alamofire
 class PlaceService {
     
     func loadCities(completion: @escaping (Result<[City]>) -> Void) {
-        let url = "https://kudago.com/public-api/v1.4/locations/?fields=name,slug&order_by=name"
+        let url = "https://kudago.com/public-api/v1.4/locations/?fields=name,slug&order_by=name&lang=ru"
         
         Alamofire.request(url, method: .get).responseJSON { response in
             guard response.result.isSuccess else {
