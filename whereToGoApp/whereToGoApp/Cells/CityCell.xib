@@ -38,7 +38,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="3g0-vh-qZf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9TA-wr-01o"/>
                     <constraint firstItem="3g0-vh-qZf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DHt-Fh-MOj"/>
@@ -49,6 +48,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityName" destination="vA8-bH-rwh" id="UAr-KY-sAz"/>
+                <outlet property="container" destination="3g0-vh-qZf" id="8Ku-xh-dJ5"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="94.084821428571431"/>
         </tableViewCell>

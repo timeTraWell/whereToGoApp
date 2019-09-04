@@ -11,11 +11,15 @@ import UIKit
 class CityCell: UITableViewCell {
     
     //MARK:- IBOutlet
-    @IBOutlet weak var cityName: UILabel!
-
+    @IBOutlet weak var cityName: UILabel!    
+    @IBOutlet weak var container: UIView!
+    
     //MARK:- TableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        initContainer()
+        cityName.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,4 +31,16 @@ class CityCell: UITableViewCell {
         cityName.text = city
     }
     
+    //MARK:- Private helper
+    private func initContainer() {
+        container.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        container.layer.cornerRadius = 10
+        
+        container.layer.masksToBounds = false
+        container.layer.shadowOffset = CGSize(width: 0, height: 4)
+        container.layer.shadowRadius = 12
+        container.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.15).cgColor
+        container.layer.shadowOpacity = 1
+    }
 }
