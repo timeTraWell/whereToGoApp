@@ -56,7 +56,8 @@ final class EventsViewController: UIViewController {
     
     //MARK:- IBAction
     @IBAction func onPressNavButton(_ sender: Any) {
-        print("nav button pressed")
+        let citiesViewController = CitiesViewController()
+        self.navigationController?.pushViewController(citiesViewController, animated: true)
     }
     
     //MARK:- Private helpers
