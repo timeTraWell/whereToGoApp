@@ -23,7 +23,7 @@ class CitiesViewController: UIViewController {
         loadContent()
     }
     
-    //MARK:- private helpers
+    //MARK:- Private helpers
     private func loadContent() {
         let place = PlaceService()
         place.loadCities(completion: { (result) in
@@ -39,6 +39,7 @@ class CitiesViewController: UIViewController {
     
     private func setupAdapter(cities: [City]) {
         let adapter = CitiesTableViewAdapter(cities: cities, tableView: self.citiesTableView)
+        citiesTableView.separatorStyle = .none
         citiesTableView.dataSource = adapter
         citiesTableView.delegate = adapter
         citiesTableView.reloadData()
