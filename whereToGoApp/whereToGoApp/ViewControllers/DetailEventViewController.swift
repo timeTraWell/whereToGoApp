@@ -10,17 +10,17 @@ import MapKit
 
 class DetailEventViewController: UIViewController {
     
-    // MARK: - Properties
+    //MARK:- Properties
     private var event: Event?
     private var adapter: ImageCollectionViewAdapter?
     
-    // MARK: - IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet var container: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    // MARK: - Labels
+    //MARK:- Labels
     @IBOutlet weak var eventHeaderLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var eventDetailLabel: UILabel!
@@ -33,11 +33,12 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var map: MKMapView!
     
-    // MARK: - IBActions
+    //MARK:- IBActions
     @IBAction func buttonBackTouch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //MARK:- ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonBack()
@@ -45,13 +46,13 @@ class DetailEventViewController: UIViewController {
         setupContent()
     }
     
+    //MARK:- Public method
     public func setEvent(event: Event) {
         self.event = event
     }
     
     
-    // MARK: - Private helpers
-    
+    //MARK:- Private helpers
     private func setupAdapter() {
         guard let images = event?.images else {
             return
