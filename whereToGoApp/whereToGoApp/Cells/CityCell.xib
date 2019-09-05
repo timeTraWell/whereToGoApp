@@ -47,7 +47,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cityName" destination="vA8-bH-rwh" id="UAr-KY-sAz"/>
+                <outlet property="cityNameLabel" destination="vA8-bH-rwh" id="8FA-Qf-smD"/>
                 <outlet property="container" destination="3g0-vh-qZf" id="8Ku-xh-dJ5"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="94.084821428571431"/>
