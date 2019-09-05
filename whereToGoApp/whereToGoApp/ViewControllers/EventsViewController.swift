@@ -33,6 +33,7 @@ final class EventsViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let topViewHeightConst = CGFloat(80)
     private var events: [Event]?
+    private var city: City?
 
     //MARK:- UIViewController
     override func viewDidLoad() {
@@ -40,6 +41,7 @@ final class EventsViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         setupTableView()
         setupRefreshControl()
+        loadCity()
         setupNavButton()
         loadContent()
     }
@@ -106,7 +108,8 @@ final class EventsViewController: UIViewController {
     
     private func loadContent() {
         let service = EventsService()
-        service.loadEvents(eventsCount: "20") { (result) in
+        let citySlug = self.city?.slug ?? "msk"
+        service.loadEvents(eventsCount: "20", citySlug: citySlug) { (result) in
             switch result {
             case .data(let events):
                 self.events = events
@@ -115,6 +118,15 @@ final class EventsViewController: UIViewController {
                 self.showInternetConnectionError()
                 print(error)
             }
+        }
+    }
+    
+    private func loadCity() {
+        let file = FileService()
+        if file.loadFromFile() == nil {
+            self.city = City(name: "Москва", slug: "msk")
+        } else {
+            self.city = file.loadFromFile()
         }
     }
     
@@ -150,7 +162,9 @@ final class EventsViewController: UIViewController {
     private func setupNavButton() {
         navButton.titleLabel?.font = Fonts.getFont(fontName: "SFProText-Semibold", size: 17)
         navButton.setTitleColor(Color.navOrange, for: .normal)
-        navButton.setTitle("Москва", for: .normal)
+        
+        let cityName = self.city?.name
+        navButton.setTitle(cityName, for: .normal)
         navButton.centerTextAndImage(spacing: -6)
         
         navButton.tintColor = Color.navOrange
