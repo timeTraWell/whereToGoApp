@@ -40,8 +40,8 @@ enum ServiceError: LocalizedError {
 
 class EventsService {
     
-    func loadEvents(eventsCount: String, completion: @escaping (Result<[Event]>) -> Void) {
-        let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,place,images,price,title,description,body_text&expand=place&page_size=\(eventsCount)&text_format=text&location=msk"
+    func loadEvents(eventsCount: String, citySlug: String, completion: @escaping (Result<[Event]>) -> Void) {
+        let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,place,images,price,title,description,body_text&expand=place&page_size=\(eventsCount)&text_format=text&location=\(citySlug)"
         Alamofire.request(url, method: .get).responseJSON { response in
             guard response.result.isSuccess else {
                 return completion(.error(.noResult))
@@ -62,6 +62,7 @@ class EventsService {
             guard let events = try? JSONDecoder().decode([Event].self, from: data) else {
                 return completion(.error(.mappingCrash))
             }
+            
             return completion(.data(events))
         }
     }
