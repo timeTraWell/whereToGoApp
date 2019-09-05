@@ -11,15 +11,19 @@ import UIKit
 class CityCell: UITableViewCell {
     
     //MARK:- IBOutlet
-    @IBOutlet weak var cityName: UILabel!    
+    @IBOutlet weak var cityNameLabel: UILabel!    
     @IBOutlet weak var container: UIView!
+    
+    //MARK:- Properties
+    private var cityName: String?
+    private var citySlug: String?
     
     //MARK:- TableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
         
         initContainer()
-        cityName.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
+        cityNameLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,8 +31,13 @@ class CityCell: UITableViewCell {
     }
     
     //MARK:- Setup func
-    func setupCell(city: String) {
-        cityName.text = city
+    func setupCell() {
+        cityNameLabel.text = self.cityName
+    }
+    
+    func setData(name: String, slug: String) {
+        self.cityName = name
+        self.citySlug = slug
     }
     
     //MARK:- Private helper
