@@ -15,6 +15,7 @@ class CitiesViewController: UIViewController {
     
     //MARK:- Properties
     private var adapter: CitiesTableViewAdapter?
+    private var cities: [City]?
 
     //MARK:- ViewController
     override func viewDidLoad() {
@@ -29,21 +30,38 @@ class CitiesViewController: UIViewController {
         place.loadCities(completion: { (result) in
             switch result {
                 case .data(let cities):
+                    self.cities = cities
                     self.setupAdapter(cities: cities)
                 case .error(let error):
-                    //TODO:- perform return to main screen
                     print(error)
+                    self.toEventsScreen()
                 }
         })
     }
     
     private func setupAdapter(cities: [City]) {
         let adapter = CitiesTableViewAdapter(cities: cities, tableView: self.citiesTableView)
+        adapter.didSelectItem = { [weak self] index in
+            guard let cities = self?.cities else {
+                return
+            }
+            print("name: \(cities[index].name), slug \(cities[index].slug)")
+            self?.toEventsScreen()
+        }
+        
         citiesTableView.separatorStyle = .none
         citiesTableView.dataSource = adapter
         citiesTableView.delegate = adapter
         citiesTableView.reloadData()
         self.adapter = adapter
+    }
+    
+    private func toEventsScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let eventsScreen = storyboard.instantiateViewController(withIdentifier: "EventsScreen") as? EventsViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(eventsScreen, animated: true)
     }
 
 }
