@@ -45,7 +45,7 @@ class CitiesViewController: UIViewController {
             guard let cities = self?.cities else {
                 return
             }
-            print("name: \(cities[index].name), slug \(cities[index].slug)")
+            self?.saveChosenCity(cityName: cities[index].name, citySlug: cities[index].slug)
             self?.toEventsScreen()
         }
         
@@ -62,6 +62,12 @@ class CitiesViewController: UIViewController {
             return
         }
         self.navigationController?.pushViewController(eventsScreen, animated: true)
+    }
+    
+    private func saveChosenCity(cityName: String, citySlug: String) {
+        let file = FileService()
+        let chosenCity = City(name: cityName, slug: citySlug)
+        file.saveToFile(city: chosenCity)
     }
 
 }
