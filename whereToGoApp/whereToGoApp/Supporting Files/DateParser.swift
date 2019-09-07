@@ -13,7 +13,6 @@ final class DateParser {
     static func getFormatedDate(intDate: Int) -> String? {
         let timeInterval = Double(intDate)
         
-        // create NSDate from Double (NSTimeInterval)
         let resultDate = Date(timeIntervalSince1970: timeInterval)
         
         let dateFormatterPrint = DateFormatter()
