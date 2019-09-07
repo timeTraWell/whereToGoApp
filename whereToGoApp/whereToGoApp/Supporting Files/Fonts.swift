@@ -10,7 +10,7 @@ import UIKit
 
 final class Fonts {
     
-    //MARK: - fonts names list
+    //MARK:- fonts names list
     //SFProDisplay-Medium, SFProText-Bold, SFProText-Regular, SFProText-Semibold
     
     static func getFont(fontName: String, size: CGFloat) -> UIFont? {

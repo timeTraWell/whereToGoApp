@@ -10,18 +10,15 @@ import UIKit
 
 final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK:- Properties
-
+    //MARK:- Properties
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
     var didSelectItem: ( (Int) -> Void )?
-    
     private let fixedContentCells = 1
 
-    // MARK: - Init
-
+    //MARK: - Init
     init(events: [Event], tableView: UITableView) {
         self.events = events
         tableView.register(
@@ -34,8 +31,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         )
     }
 
-    // MARK: - UITableView data source
-    
+    //MARK:- UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -44,13 +40,6 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         return fixedContentCells + events.count
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row > (fixedContentCells - 1) {
-            didSelectItem?(indexPath.row - fixedContentCells)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -65,6 +54,14 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
                 }
             cell.setupCell(event: events[indexPath.row - fixedContentCells])
             return cell
+        }
+    }
+    
+    //MARK:- UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.row > (fixedContentCells - 1) {
+            didSelectItem?(indexPath.row - fixedContentCells)
         }
     }
 

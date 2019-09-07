@@ -11,6 +11,7 @@ import AlamofireImage
 
 class ContentCell: UITableViewCell {
 
+    //MARK:- IBOutlets
     @IBOutlet weak var topImage: UIImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
@@ -20,6 +21,7 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var geoView: UIView!
     @IBOutlet weak var container: UIView!
 
+    //MARK:- UITableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
@@ -41,6 +43,7 @@ class ContentCell: UITableViewCell {
         self.selectedBackgroundView = backgroundView
     }
 
+    //MARK:- Setup func
     func setupCell(event: Event) {
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
@@ -83,6 +86,7 @@ class ContentCell: UITableViewCell {
         
     }
     
+    //MARK:- Private helpers
     private func initLabels()  {
         eventNameLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
         eventNameLabel.textColor = Color.black

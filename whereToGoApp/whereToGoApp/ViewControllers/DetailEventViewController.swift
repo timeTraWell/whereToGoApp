@@ -20,7 +20,7 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    //MARK:- Labels
+    //MARK:- IBOutlets, labels
     @IBOutlet weak var eventHeaderLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var eventDetailLabel: UILabel!
@@ -33,12 +33,12 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var map: MKMapView!
     
-    //MARK:- IBActions
+    //MARK:- IBAction
     @IBAction func buttonBackTouch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    //MARK:- ViewController
+    //MARK:- UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonBack()

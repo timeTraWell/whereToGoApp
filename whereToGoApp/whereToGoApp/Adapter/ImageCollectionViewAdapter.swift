@@ -10,16 +10,19 @@ import UIKit
 
 class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    //MARK:- Private properties
     private let cell = String(describing: ImageCollectionCell.self)
     private var images: [ResponseImage]
     private var pageControl: UIPageControl
     
+    //MARK:- Init
     init(collectionView: UICollectionView, images: [ResponseImage], imageControl: UIPageControl) {
         collectionView.register(UINib(nibName: cell, bundle: .main), forCellWithReuseIdentifier: cell)
         self.images = images
         self.pageControl = imageControl
     }
     
+    //MARK:- UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.images.count
     }
@@ -32,6 +35,7 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
         return imageCollectionCell
     }
     
+    //MARK:- UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let currentCellIndex = collectionView.indexPathsForVisibleItems[0][1]
         if (currentCellIndex > pageControl.numberOfPages) {

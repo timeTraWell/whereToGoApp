@@ -17,7 +17,7 @@ class CitiesViewController: UIViewController {
     private var adapter: CitiesTableViewAdapter?
     private var cities: [City]?
 
-    //MARK:- ViewController
+    //MARK:- UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         

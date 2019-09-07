@@ -15,6 +15,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
     private let cityCell = String(describing: CityCell.self)
     var didSelectItem: ( (Int) -> Void )?
     
+    //MARK:- Init
     init(cities: [City], tableView: UITableView) {
         self.cities = cities
         tableView.register(
@@ -23,7 +24,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
         )
     }
     
-    //MARK:- tableView DataSource
+    //MARK:- UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
     }
@@ -37,6 +38,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    //MARK:- UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         didSelectItem?(indexPath.row)

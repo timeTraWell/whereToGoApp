@@ -10,9 +10,10 @@ import UIKit
 
 class ImageCollectionCell: UICollectionViewCell {
 
-    //MARK: - IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet weak var imageContainer: UIImageView!
     
+    //MARK:- UICollectionViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
     }
