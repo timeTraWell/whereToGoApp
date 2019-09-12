@@ -40,7 +40,7 @@ enum ServiceError: LocalizedError {
 
 class EventsService {
     
-    func loadEvents(eventsCount: String, citySlug: String, completion: @escaping (Result<[Event]>) -> Void) {
+    func loadEvents(eventsCount: Int, citySlug: String, completion: @escaping (Result<[Event]>) -> Void) {
         let actualDate = getActualDate()
         let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,place,images,price,title,description,body_text&actual_since=\(actualDate)&expand=place&page_size=\(eventsCount)&text_format=text&location=\(citySlug)"
         Alamofire.request(url, method: .get).responseJSON { response in
