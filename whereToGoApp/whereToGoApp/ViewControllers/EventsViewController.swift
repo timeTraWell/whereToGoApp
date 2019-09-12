@@ -95,6 +95,7 @@ final class EventsViewController: UIViewController {
                 vc.setNavigationViewToOriginal()
             }
         }
+        
         adapter.didSelectItem = { [weak self] index in
             guard let events = self?.events else {
                 return
@@ -108,13 +109,21 @@ final class EventsViewController: UIViewController {
             
             let countedContentHeight = vc.eventsCount * 400
             
-            if (countedContentHeight / 2) < Int(yPoint) {
-                print("load new content")
-                vc.adapter?.additionalCell = 5
-                print(vc.adapter?.additionalCell)
-            }
+            print("countedContentHeight: \( (countedContentHeight / 2) )  y: \( Int(yPoint) )")
             
+            if (countedContentHeight / 2) < Int(yPoint) {
+                
+                guard let a = vc.adapter else {
+                    return
+                }
+                
+                vc.page += 1
+                vc.loadAdditionalContent(eventsCount: 20, page: vc.page, adapter: a)
+                vc.eventsCount += 20
+
+            }    
         }
+        
         tableView.dataSource = adapter
         tableView.delegate = adapter
         loaderView.isHidden = true
@@ -122,10 +131,28 @@ final class EventsViewController: UIViewController {
         self.adapter = adapter
     }
     
+    private func loadAdditionalContent(eventsCount: Int, page: Int, adapter: EventsTableViewAdapter) {
+        let service = EventsService()
+        let citySlug = self.city?.slug ?? "msk"
+        service.loadEvents(eventsCount: eventsCount, page: page, citySlug: citySlug) { (result) in
+            switch result {
+            case .data(let events):
+                guard var currentEvents = self.events else { return }
+                currentEvents += events
+                self.events = currentEvents
+                adapter.addNewEvents(events: events)
+                self.tableView.reloadData()
+            case .error(let error):
+//                self.showInternetConnectionError()
+                print(error)
+            }
+        }
+    }
+    
     private func loadContent(eventsCount: Int) {
         let service = EventsService()
         let citySlug = self.city?.slug ?? "msk"
-        service.loadEvents(eventsCount: eventsCount, citySlug: citySlug) { (result) in
+        service.loadEvents(eventsCount: eventsCount, page: self.page, citySlug: citySlug) { (result) in
             switch result {
             case .data(let events):
                 self.events = events

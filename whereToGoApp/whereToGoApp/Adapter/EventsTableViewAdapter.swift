@@ -13,12 +13,11 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     //MARK:- Properties
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
-    private let events: [Event]
+    private var events: [Event]
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
     var didSelectItem: ((Int) -> Void)?
     var didScrollCells: ((CGFloat) -> Void)?
     private let fixedContentCells = 1
-    var additionalCell = 0
 
     //MARK: - Init
     init(events: [Event], tableView: UITableView) {
@@ -32,6 +31,10 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             forCellReuseIdentifier: contentCell
         )
     }
+    
+    func addNewEvents(events: [Event]) {
+        self.events += events
+    }
 
     //MARK:- UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,8 +42,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(fixedContentCells + events.count + additionalCell)
-        return fixedContentCells + events.count + additionalCell
+        return fixedContentCells + events.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +76,5 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         }
         
         didScrollCells?(scrollView.contentOffset.y)
-        print(self.additionalCell)
     }
 }
