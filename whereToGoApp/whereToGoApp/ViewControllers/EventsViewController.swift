@@ -34,6 +34,8 @@ final class EventsViewController: UIViewController {
     private let topViewHeightConst = CGFloat(80)
     private var events: [Event]?
     private var city: City?
+    private var eventsCount = 20
+    private var page = 1
 
     //MARK:- UIViewController
     override func viewDidLoad() {
@@ -43,7 +45,7 @@ final class EventsViewController: UIViewController {
         setupRefreshControl()
         loadCity()
         setupNavButton()
-        loadContent()
+        loadContent(eventsCount: eventsCount)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +101,20 @@ final class EventsViewController: UIViewController {
             }
             self?.performSegue(withIdentifier: "showDetail", sender: events[index])
         }
+
+        adapter.didScrollCells = { [weak self] yPoint in
+            
+            guard let vc = self else { return }
+            
+            let countedContentHeight = vc.eventsCount * 400
+            
+            if (countedContentHeight / 2) < Int(yPoint) {
+                print("load new content")
+                vc.adapter?.additionalCell = 5
+                print(vc.adapter?.additionalCell)
+            }
+            
+        }
         tableView.dataSource = adapter
         tableView.delegate = adapter
         loaderView.isHidden = true
@@ -106,10 +122,10 @@ final class EventsViewController: UIViewController {
         self.adapter = adapter
     }
     
-    private func loadContent() {
+    private func loadContent(eventsCount: Int) {
         let service = EventsService()
         let citySlug = self.city?.slug ?? "msk"
-        service.loadEvents(eventsCount: "20", citySlug: citySlug) { (result) in
+        service.loadEvents(eventsCount: eventsCount, citySlug: citySlug) { (result) in
             switch result {
             case .data(let events):
                 self.events = events
@@ -134,7 +150,7 @@ final class EventsViewController: UIViewController {
         let loadingTime: Double = 5.5
         let dispatchTime: DispatchTime = .now() + loadingTime
         DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
-            self.loadContent()
+            self.loadContent(eventsCount: self.eventsCount)
             self.refreshControl.endRefreshing()
         }
     }

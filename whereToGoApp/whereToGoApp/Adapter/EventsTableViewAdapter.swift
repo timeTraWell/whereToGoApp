@@ -15,8 +15,10 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     private let contentCell = String(describing: ContentCell.self)
     private let events: [Event]
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
-    var didSelectItem: ( (Int) -> Void )?
+    var didSelectItem: ((Int) -> Void)?
+    var didScrollCells: ((CGFloat) -> Void)?
     private let fixedContentCells = 1
+    var additionalCell = 0
 
     //MARK: - Init
     init(events: [Event], tableView: UITableView) {
@@ -37,7 +39,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fixedContentCells + events.count
+        return fixedContentCells + events.count + additionalCell
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,7 +54,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     return UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:contentCell)
                 }
-            cell.setupCell(event: events[indexPath.row - fixedContentCells])
+            cell.setupCell(event: events[indexPath.row - fixedContentCells], index: indexPath.row - fixedContentCells)
             return cell
         }
     }
@@ -69,5 +71,8 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         if scrollView.contentOffset.y >= 0 {
             scrollContentIsOverTop?(scrollView.contentOffset.y)
         }
+        
+        didScrollCells?(scrollView.contentOffset.y)
+        print(self.additionalCell)
     }
 }
