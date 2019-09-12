@@ -39,6 +39,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(fixedContentCells + events.count + additionalCell)
         return fixedContentCells + events.count + additionalCell
     }
 
