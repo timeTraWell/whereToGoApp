@@ -94,6 +94,17 @@ final class EventsViewController: UIViewController {
                 
                 vc.setNavigationViewToOriginal()
             }
+            
+            let countedContentHeight = vc.eventsCount * 400
+            
+            if (countedContentHeight / 2) < Int(yPosition) {
+                guard let a = vc.adapter else {
+                    return
+                }
+                vc.page += 1
+                vc.loadAdditionalContent(eventsCount: 20, page: vc.page, adapter: a)
+                vc.eventsCount += 20
+            }
         }
         
         adapter.didSelectItem = { [weak self] index in
@@ -101,20 +112,6 @@ final class EventsViewController: UIViewController {
                 return
             }
             self?.performSegue(withIdentifier: "showDetail", sender: events[index])
-        }
-
-        adapter.didScrollCells = { [weak self] yPoint in
-            guard let vc = self else { return }
-            let countedContentHeight = vc.eventsCount * 400
-            
-            if (countedContentHeight / 2) < Int(yPoint) {
-                guard let a = vc.adapter else {
-                    return
-                }
-                vc.page += 1
-                vc.loadAdditionalContent(eventsCount: 20, page: vc.page, adapter: a)
-                vc.eventsCount += 20
-            }    
         }
         
         tableView.dataSource = adapter

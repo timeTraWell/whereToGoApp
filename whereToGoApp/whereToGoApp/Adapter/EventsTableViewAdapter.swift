@@ -16,7 +16,6 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     private var events: [Event]
     var scrollContentIsOverTop: ((CGFloat) -> Void)?
     var didSelectItem: ((Int) -> Void)?
-    var didScrollCells: ((CGFloat) -> Void)?
     private let fixedContentCells = 1
 
     //MARK: - Init
@@ -75,6 +74,5 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             scrollContentIsOverTop?(scrollView.contentOffset.y)
         }
         
-        didScrollCells?(scrollView.contentOffset.y)
     }
 }
