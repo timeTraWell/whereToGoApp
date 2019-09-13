@@ -57,7 +57,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: contentCell, for: indexPath) as? ContentCell else {
                     return UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:contentCell)
                 }
-            cell.setupCell(event: events[indexPath.row - fixedContentCells], index: indexPath.row - fixedContentCells)
+            cell.setupCell(event: events[indexPath.row - fixedContentCells])
             return cell
         }
     }

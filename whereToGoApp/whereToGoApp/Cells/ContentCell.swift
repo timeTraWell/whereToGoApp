@@ -44,7 +44,7 @@ class ContentCell: UITableViewCell {
     }
 
     //MARK:- Setup func
-    func setupCell(event: Event, index: Int) {
+    func setupCell(event: Event) {
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
         
