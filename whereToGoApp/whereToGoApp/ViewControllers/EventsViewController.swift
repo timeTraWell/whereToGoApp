@@ -177,6 +177,8 @@ final class EventsViewController: UIViewController {
         let loadingTime: Double = 5.5
         let dispatchTime: DispatchTime = .now() + loadingTime
         DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
+            self.eventsCount = 20
+            self.page = 1
             self.loadContent(eventsCount: self.eventsCount)
             self.refreshControl.endRefreshing()
         }
