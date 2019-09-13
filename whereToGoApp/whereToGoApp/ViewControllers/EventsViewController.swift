@@ -104,23 +104,16 @@ final class EventsViewController: UIViewController {
         }
 
         adapter.didScrollCells = { [weak self] yPoint in
-            
             guard let vc = self else { return }
-            
             let countedContentHeight = vc.eventsCount * 400
             
-            print("countedContentHeight: \( (countedContentHeight / 2) )  y: \( Int(yPoint) )")
-            
             if (countedContentHeight / 2) < Int(yPoint) {
-                
                 guard let a = vc.adapter else {
                     return
                 }
-                
                 vc.page += 1
                 vc.loadAdditionalContent(eventsCount: 20, page: vc.page, adapter: a)
                 vc.eventsCount += 20
-
             }    
         }
         
@@ -143,7 +136,6 @@ final class EventsViewController: UIViewController {
                 adapter.addNewEvents(events: events)
                 self.tableView.reloadData()
             case .error(let error):
-//                self.showInternetConnectionError()
                 print(error)
             }
         }
@@ -177,6 +169,7 @@ final class EventsViewController: UIViewController {
         let loadingTime: Double = 5.5
         let dispatchTime: DispatchTime = .now() + loadingTime
         DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
+            //Back to initial values
             self.eventsCount = 20
             self.page = 1
             self.loadContent(eventsCount: self.eventsCount)
