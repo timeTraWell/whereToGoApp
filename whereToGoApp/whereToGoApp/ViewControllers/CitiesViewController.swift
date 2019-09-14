@@ -16,6 +16,17 @@ class CitiesViewController: UIViewController {
     //MARK:- Properties
     private var adapter: CitiesTableViewAdapter?
     private var cities: [City]?
+    
+    var eventsViewController: EventsOutputProtocol?
+    
+    init(eventsViewController: EventsOutputProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        self.eventsViewController = eventsViewController
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
     //MARK:- UIViewController
     override func viewDidLoad() {
@@ -46,6 +57,10 @@ class CitiesViewController: UIViewController {
                 return
             }
             self?.saveChosenCity(cityName: cities[index].name, citySlug: cities[index].slug)
+            guard let eventsViewController = self?.eventsViewController else {
+                return
+            }
+            eventsViewController.didCityChanged(name: cities[index].name, slug: cities[index].slug)
             self?.toEventsScreen()
         }
         
@@ -57,11 +72,7 @@ class CitiesViewController: UIViewController {
     }
     
     private func toEventsScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let eventsScreen = storyboard.instantiateViewController(withIdentifier: "EventsScreen") as? EventsViewController else {
-            return
-        }
-        self.navigationController?.pushViewController(eventsScreen, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func saveChosenCity(cityName: String, citySlug: String) {

@@ -60,7 +60,7 @@ final class EventsViewController: UIViewController {
     
     //MARK:- IBAction
     @IBAction func onPressNavButton(_ sender: Any) {
-        let citiesViewController = CitiesViewController()
+        let citiesViewController = CitiesViewController(eventsViewController: self)
         self.navigationController?.pushViewController(citiesViewController, animated: true)
     }
     
@@ -250,3 +250,13 @@ final class EventsViewController: UIViewController {
     }
 }
 
+extension EventsViewController: EventsOutputProtocol {
+    func didCityChanged(name: String, slug: String) {
+        self.city = City(name: name, slug: slug)
+        tableView.contentOffset.y = 0
+        setupNavButton()
+        self.eventsCount = 20
+        self.page = 1
+        loadContent(eventsCount: eventsCount)
+    }
+}
