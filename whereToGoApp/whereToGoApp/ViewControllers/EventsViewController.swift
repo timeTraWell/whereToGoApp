@@ -82,16 +82,30 @@ final class EventsViewController: UIViewController {
         bottomLogoMargin.constant = 6
     }
     
+    private func setNavigationViewToOriginal() {
+        navigationView.backgroundColor = Color.white
+        
+        for subview in navigationView.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        logo.image = UIImage(named: "logoBig")
+        topLogoMargin.constant = 36
+        logoHeight.constant = 44
+        bottomLogoMargin.constant = 0
+    }
+    
     private func setupAdapter(events: [Event]) {
         let adapter = EventsTableViewAdapter(events: events, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
-            if yPosition < 10 {
-                
+            if yPosition > 10 && vc.navigationView.backgroundColor != Color.blurWhite {
                 vc.modifyNavigationView()
             }
-            if yPosition == 0 {
-                
+            
+            if yPosition <= 10  && vc.navigationView.backgroundColor != Color.white{
                 vc.setNavigationViewToOriginal()
             }
             
@@ -177,21 +191,6 @@ final class EventsViewController: UIViewController {
     private func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(self.refreshTarget), for: .valueChanged)
         tableView.refreshControl = refreshControl
-    }
-    
-    private func setNavigationViewToOriginal() {
-        navigationView.backgroundColor = Color.white
-        
-        for subview in navigationView.subviews {
-            if subview is UIVisualEffectView {
-                subview.removeFromSuperview()
-            }
-        }
-        
-        logo.image = UIImage(named: "logoBig")
-        topLogoMargin.constant = 36
-        logoHeight.constant = 44
-        bottomLogoMargin.constant = 0
     }
     
     private func setupNavButton() {
