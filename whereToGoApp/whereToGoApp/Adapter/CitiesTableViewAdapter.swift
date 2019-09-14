@@ -40,7 +40,6 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
     
     //MARK:- UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         didSelectItem?(indexPath.row)
     }
 }
