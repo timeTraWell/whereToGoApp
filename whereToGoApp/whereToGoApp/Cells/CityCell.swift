@@ -24,6 +24,7 @@ class CityCell: UITableViewCell {
         
         initContainer()
         cityNameLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
+        cityNameLabel.textColor = Color.navOrange
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,10 +51,7 @@ class CityCell: UITableViewCell {
         
         container.layer.cornerRadius = 10
         
-        container.layer.masksToBounds = false
-        container.layer.shadowOffset = CGSize(width: 4, height: 4)
-        container.layer.shadowRadius = 0
-        container.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.25).cgColor
-        container.layer.shadowOpacity = 1
+        container.layer.borderColor = Color.navOrange.cgColor
+        container.layer.borderWidth = 1.0
     }
 }
