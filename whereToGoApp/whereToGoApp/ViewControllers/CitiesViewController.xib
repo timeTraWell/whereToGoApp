@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CitiesViewController" customModule="whereToGoApp" customModuleProvider="target">
             <connections>
                 <outlet property="citiesTableView" destination="nt4-vM-X3I" id="tk7-RQ-SaP"/>
+                <outlet property="loadingIndicatorContainer" destination="bg4-hj-IKE" id="ma9-Hh-Mcd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,15 +22,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nt4-vM-X3I">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nt4-vM-X3I">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bg4-hj-IKE">
+                    <rect key="frame" x="187" y="433" width="40" height="40"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-qV-aom">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="n44-c8-e7w"/>
+                                <constraint firstAttribute="height" constant="40" id="vmx-2b-ZeT"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="eW8-qV-aom" secondAttribute="bottom" id="Bm0-qU-Ukk"/>
+                        <constraint firstAttribute="trailing" secondItem="eW8-qV-aom" secondAttribute="trailing" id="Hd2-Td-dnA"/>
+                        <constraint firstItem="eW8-qV-aom" firstAttribute="top" secondItem="bg4-hj-IKE" secondAttribute="top" id="JtS-UG-r49"/>
+                        <constraint firstItem="eW8-qV-aom" firstAttribute="leading" secondItem="bg4-hj-IKE" secondAttribute="leading" id="M2O-nb-8kM"/>
+                        <constraint firstItem="eW8-qV-aom" firstAttribute="centerX" secondItem="bg4-hj-IKE" secondAttribute="centerX" id="XIX-lR-hhR"/>
+                        <constraint firstItem="eW8-qV-aom" firstAttribute="centerY" secondItem="bg4-hj-IKE" secondAttribute="centerY" id="aVp-EW-xX2"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="bg4-hj-IKE" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="1Yf-Zl-gPx"/>
                 <constraint firstItem="nt4-vM-X3I" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HMZ-Ph-WLq"/>
                 <constraint firstItem="nt4-vM-X3I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pci-zZ-weU"/>
+                <constraint firstItem="bg4-hj-IKE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="T8v-Gh-DNw"/>
                 <constraint firstItem="nt4-vM-X3I" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="hgg-5E-5dl"/>
                 <constraint firstItem="nt4-vM-X3I" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sr9-09-iqw"/>
             </constraints>

@@ -12,6 +12,7 @@ class CitiesViewController: UIViewController {
     
     //MARK:- IBOutlets
     @IBOutlet weak var citiesTableView: UITableView!
+    @IBOutlet weak var loadingIndicatorContainer: UIView!
     
     //MARK:- Properties
     private var adapter: CitiesTableViewAdapter?
@@ -32,15 +33,23 @@ class CitiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
         loadContent()
     }
     
     //MARK:- Private helpers
+    private func setupTableView() {
+        citiesTableView.tableFooterView = UIView()
+        citiesTableView.allowsSelection = true
+        citiesTableView.rowHeight = UITableView.automaticDimension
+    }
+    
     private func loadContent() {
         let place = PlaceService()
         place.loadCities(completion: { (result) in
             switch result {
                 case .data(let cities):
+                    self.loadingIndicatorContainer.isHidden = true
                     self.cities = cities
                     self.setupAdapter(cities: cities)
                 case .error(let error):
