@@ -65,49 +65,10 @@ final class EventsViewController: UIViewController {
     }
     
     //MARK:- Private helpers
-    private func modifyNavigationView() {
-        navigationView.backgroundColor = Color.blurWhite
-        
-        //add blur
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = navigationView.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        navigationView.insertSubview(blurEffectView, at: 0)
-        
-        //change elements and constraints in root view
-        logo.image = UIImage(named: "logoScroll")
-        topLogoMargin.constant = 26
-        logoHeight.constant = 32
-        bottomLogoMargin.constant = 6
-    }
-    
-    private func setNavigationViewToOriginal() {
-        navigationView.backgroundColor = Color.white
-        
-        for subview in navigationView.subviews {
-            if subview is UIVisualEffectView {
-                subview.removeFromSuperview()
-            }
-        }
-        
-        logo.image = UIImage(named: "logoBig")
-        topLogoMargin.constant = 36
-        logoHeight.constant = 44
-        bottomLogoMargin.constant = 0
-    }
-    
     private func setupAdapter(events: [Event]) {
         let adapter = EventsTableViewAdapter(events: events, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
             guard let vc = self else { return }
-            if yPosition > 10 && vc.navigationView.backgroundColor != Color.blurWhite {
-                vc.modifyNavigationView()
-            }
-            
-            if yPosition <= 10  && vc.navigationView.backgroundColor != Color.white{
-                vc.setNavigationViewToOriginal()
-            }
             
             let countedContentHeight = vc.eventsCount * 400
             
