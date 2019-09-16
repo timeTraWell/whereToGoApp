@@ -28,6 +28,10 @@ class CityCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clear
+        self.selectedBackgroundView = backgroundView
     }
     
     //MARK:- Setup func
@@ -47,9 +51,9 @@ class CityCell: UITableViewCell {
         container.layer.cornerRadius = 10
         
         container.layer.masksToBounds = false
-        container.layer.shadowOffset = CGSize(width: 0, height: 4)
-        container.layer.shadowRadius = 12
-        container.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.15).cgColor
+        container.layer.shadowOffset = CGSize(width: 4, height: 4)
+        container.layer.shadowRadius = 0
+        container.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.25).cgColor
         container.layer.shadowOpacity = 1
     }
 }
