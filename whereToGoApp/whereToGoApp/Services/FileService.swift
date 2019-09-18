@@ -11,9 +11,11 @@ import Foundation
 class FileService {
     
     //MARK:- Properties
+    
     private let fileName = "cityInfo.json"
     
     //MARK:- Public methods
+    
     public func saveToFile(city: City) -> Bool {
         guard let data = try? JSONSerialization.data(withJSONObject: city.json, options: JSONSerialization.WritingOptions.prettyPrinted) else {
             return false
@@ -56,6 +58,7 @@ class FileService {
     }
     
     //MARK:- Private helper
+    
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]

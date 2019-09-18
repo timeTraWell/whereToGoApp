@@ -69,6 +69,7 @@ class EventsService {
     }
     
     //MARK:- Private helper
+    
     private func getActualDate() -> Int {
         let someDate = Date()
         let timeInterval = someDate.timeIntervalSince1970

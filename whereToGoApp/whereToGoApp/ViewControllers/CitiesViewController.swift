@@ -11,10 +11,12 @@ import UIKit
 class CitiesViewController: UIViewController {
     
     //MARK:- IBOutlets
+    
     @IBOutlet weak var citiesTableView: UITableView!
     @IBOutlet weak var loadingIndicatorContainer: UIView!
     
     //MARK:- Properties
+    
     private var adapter: CitiesTableViewAdapter?
     private var cities: [City]?
     
@@ -30,6 +32,7 @@ class CitiesViewController: UIViewController {
     }
 
     //MARK:- UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -37,6 +40,7 @@ class CitiesViewController: UIViewController {
     }
     
     //MARK:- Private helpers
+    
     private func setupTableView() {
         citiesTableView.tableFooterView = UIView()
         citiesTableView.allowsSelection = true

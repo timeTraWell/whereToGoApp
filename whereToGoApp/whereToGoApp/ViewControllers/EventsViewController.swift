@@ -11,6 +11,7 @@ import UIKit
 final class EventsViewController: UIViewController {
 
     //MARK:- IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var errorLabel: UILabel!
@@ -22,6 +23,7 @@ final class EventsViewController: UIViewController {
     @IBOutlet weak var navigationView: UIView!
     
     //MARK:- IBOutlets constraint
+    
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     @IBOutlet weak var topLogoMargin: NSLayoutConstraint!
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
@@ -29,6 +31,7 @@ final class EventsViewController: UIViewController {
     
     
     //MARK:- Properties
+    
     private var adapter: EventsTableViewAdapter?
     private let refreshControl = UIRefreshControl()
     private let topViewHeightConst = CGFloat(80)
@@ -38,6 +41,7 @@ final class EventsViewController: UIViewController {
     private var page = 1
 
     //MARK:- UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -59,12 +63,14 @@ final class EventsViewController: UIViewController {
     }
     
     //MARK:- IBAction
+    
     @IBAction func onPressNavButton(_ sender: Any) {
         let citiesViewController = CitiesViewController(eventsViewController: self)
         self.navigationController?.pushViewController(citiesViewController, animated: true)
     }
     
     //MARK:- Private helpers
+    
     private func setupAdapter(events: [Event]) {
         let adapter = EventsTableViewAdapter(events: events, tableView: tableView)
         adapter.scrollContentIsOverTop = { [weak self] yPosition in
@@ -189,6 +195,7 @@ final class EventsViewController: UIViewController {
     }
     
     //MARK:- Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)

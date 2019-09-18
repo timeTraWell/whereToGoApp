@@ -11,6 +11,7 @@ import UIKit
 final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     //MARK:- Properties
+    
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
     private var events: [Event]
@@ -19,6 +20,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     private let fixedContentCells = 1
 
     //MARK: - Init
+    
     init(events: [Event], tableView: UITableView) {
         self.events = events
         tableView.register(
@@ -36,6 +38,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
 
     //MARK:- UITableViewDataSource
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -62,6 +65,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     }
     
     //MARK:- UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row > (fixedContentCells - 1) {

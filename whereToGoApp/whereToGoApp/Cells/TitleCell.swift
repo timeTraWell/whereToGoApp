@@ -11,9 +11,11 @@ import UIKit
 class TitleCell: UITableViewCell {
 
     //MARK:- IBOutlet
+    
     @IBOutlet weak var titleLabel: UILabel!
 
     //MARK:- UITableViewCell
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.contentMode = .bottom

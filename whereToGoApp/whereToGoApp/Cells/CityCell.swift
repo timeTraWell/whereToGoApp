@@ -11,14 +11,17 @@ import UIKit
 class CityCell: UITableViewCell {
     
     //MARK:- IBOutlet
+    
     @IBOutlet weak var cityNameLabel: UILabel!    
     @IBOutlet weak var container: UIView!
     
     //MARK:- Properties
+    
     private var cityName: String?
     private var citySlug: String?
     
     //MARK:- TableViewCell
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         initContainer()
@@ -34,6 +37,7 @@ class CityCell: UITableViewCell {
     }
     
     //MARK:- Setup func
+    
     func setupCell() {
         cityNameLabel.text = self.cityName
     }
@@ -44,6 +48,7 @@ class CityCell: UITableViewCell {
     }
     
     //MARK:- Private helper
+    
     private func initContainer() {
         container.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         

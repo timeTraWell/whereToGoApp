@@ -11,11 +11,13 @@ import UIKit
 class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     //MARK:- Properties
+    
     private let cities: [City]
     private let cityCell = String(describing: CityCell.self)
     var didSelectItem: ( (Int) -> Void )?
     
     //MARK:- Init
+    
     init(cities: [City], tableView: UITableView) {
         self.cities = cities
         tableView.register(
@@ -25,6 +27,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
     }
     
     //MARK:- UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
     }
@@ -39,6 +42,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
     }
     
     //MARK:- UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItem?(indexPath.row)
     }
