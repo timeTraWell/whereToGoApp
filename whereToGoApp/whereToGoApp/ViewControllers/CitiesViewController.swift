@@ -85,9 +85,8 @@ class CitiesViewController: UIViewController {
     }
     
     private func saveChosenCity(cityName: String, citySlug: String) {
-        let file = FileService()
         let chosenCity = City(name: cityName, slug: citySlug)
-        file.saveToFile(city: chosenCity)
+        let _ = FileService().saveToFile(city: chosenCity)
     }
 
 }
