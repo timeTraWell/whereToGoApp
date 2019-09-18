@@ -91,17 +91,13 @@ class DetailEventViewController: UIViewController {
         guard let dates = event?.dates, !dates.isEmpty else {
             return
         }
-        
         let date = dates[0]
-        
         guard let startDate = DateParser.getFormatedDate(intDate: date.start) else {
             return
         }
-        
         guard let endDate = DateParser.getFormatedDate(intDate: date.end) else {
             return
         }
-        
         eventDateLabel.text = startDate + " - " + endDate
     }
     

@@ -16,7 +16,6 @@ class TitleCell: UITableViewCell {
     //MARK:- UITableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
-
         titleLabel.contentMode = .bottom
         titleLabel.font = Fonts.getFont(fontName: "SFProDisplay-Medium", size: 30)
         titleLabel.textColor = Color.black
@@ -24,7 +23,6 @@ class TitleCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = backgroundView

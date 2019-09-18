@@ -198,14 +198,13 @@ final class EventsViewController: UIViewController {
         }
         
         switch (segue.identifier ?? "") {
-            
-        case "showDetail":
-            guard let detailEventViewController = segue.destination as? DetailEventViewController else {
+            case "showDetail":
+                guard let detailEventViewController = segue.destination as? DetailEventViewController else {
+                    return
+                }
+                detailEventViewController.setEvent(event: eventData)
+            default:
                 return
-            }
-            detailEventViewController.setEvent(event: eventData)
-        default:
-            return
         }
     }
     

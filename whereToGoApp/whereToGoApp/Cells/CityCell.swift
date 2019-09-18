@@ -21,7 +21,6 @@ class CityCell: UITableViewCell {
     //MARK:- TableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         initContainer()
         cityNameLabel.font = Fonts.getFont(fontName: "SFProText-Bold", size: 16)
         cityNameLabel.textColor = Color.navOrange
@@ -29,7 +28,6 @@ class CityCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = backgroundView

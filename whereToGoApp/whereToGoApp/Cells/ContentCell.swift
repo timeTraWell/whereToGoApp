@@ -25,7 +25,6 @@ class ContentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
-        
         initLabels()
         initContainer()
     }
@@ -37,7 +36,6 @@ class ContentCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = backgroundView
@@ -59,11 +57,9 @@ class ContentCell: UITableViewCell {
         guard let startDate = DateParser.getFormatedDate(intDate: date.start) else {
             return
         }
-        
         guard let endDate = DateParser.getFormatedDate(intDate: date.end) else {
             return
         }
-        
         eventDateLabel.text = startDate + " - " + endDate
         
         topImage.layer.masksToBounds = true

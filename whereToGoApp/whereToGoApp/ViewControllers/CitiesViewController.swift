@@ -32,7 +32,6 @@ class CitiesViewController: UIViewController {
     //MARK:- UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTableView()
         loadContent()
     }
