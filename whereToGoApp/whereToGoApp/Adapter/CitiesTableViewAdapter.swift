@@ -42,4 +42,5 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItem?(indexPath.row)
     }
+    
 }

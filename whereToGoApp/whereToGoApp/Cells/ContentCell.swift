@@ -77,13 +77,12 @@ class ContentCell: UITableViewCell {
             }
         }
         
-        if ( event.place?.address != nil)   {
+        if event.place?.address != nil {
             geoView.isHidden = false
             geoLocationLabel.text = event.place?.address
         } else {
             geoView.isHidden = true
         }
-        
     }
     
     //MARK:- Private helpers

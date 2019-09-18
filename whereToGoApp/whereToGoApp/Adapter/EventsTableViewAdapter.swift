@@ -73,6 +73,6 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         if scrollView.contentOffset.y >= 0 {
             scrollContentIsOverTop?(scrollView.contentOffset.y)
         }
-        
     }
+    
 }

@@ -208,6 +208,7 @@ final class EventsViewController: UIViewController {
             return
         }
     }
+    
 }
 
 extension EventsViewController: EventsOutputProtocol {

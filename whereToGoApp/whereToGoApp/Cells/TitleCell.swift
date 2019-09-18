@@ -29,4 +29,5 @@ class TitleCell: UITableViewCell {
         backgroundView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = backgroundView
     }
+    
 }

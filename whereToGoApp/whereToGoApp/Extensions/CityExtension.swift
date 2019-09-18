@@ -32,4 +32,5 @@ extension City {
         
         return jsonObject
     }
+    
 }

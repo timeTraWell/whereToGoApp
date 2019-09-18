@@ -48,4 +48,5 @@ class ImageCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 260)
     }
+    
 }

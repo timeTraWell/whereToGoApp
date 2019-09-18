@@ -54,4 +54,5 @@ class CityCell: UITableViewCell {
         container.layer.borderColor = Color.navOrange.cgColor
         container.layer.borderWidth = 1.0
     }
+    
 }

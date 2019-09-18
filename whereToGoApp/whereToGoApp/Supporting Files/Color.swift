@@ -9,7 +9,6 @@
 import UIKit
 
 final class Color {
-
     static let black = UIColor(red: 0, green: 0, blue: 0, alpha: 0.85)
     static let gray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
     static let white = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

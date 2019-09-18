@@ -74,4 +74,5 @@ class EventsService {
         let timeInterval = someDate.timeIntervalSince1970
         return Int(timeInterval)
     }
+    
 }
