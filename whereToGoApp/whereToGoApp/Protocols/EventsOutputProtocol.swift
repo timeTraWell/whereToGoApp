@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol EventsOutputProtocol {
+protocol EventsOutputProtocol: class {
     func didCityChanged(name: String, slug: String)
 }

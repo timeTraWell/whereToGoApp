@@ -65,7 +65,9 @@ final class EventsViewController: UIViewController {
     //MARK:- IBAction
     
     @IBAction func onPressNavButton(_ sender: Any) {
-        let citiesViewController = CitiesViewController(eventsViewController: self)
+        guard let citiesViewController = CitiesViewController(delegate: self) else {
+            return
+        }
         self.navigationController?.pushViewController(citiesViewController, animated: true)
     }
     

@@ -20,11 +20,11 @@ class CitiesViewController: UIViewController {
     private var adapter: CitiesTableViewAdapter?
     private var cities: [City]?
     
-    var eventsViewController: EventsOutputProtocol?
+    weak var delegate: EventsOutputProtocol?
     
-    init(eventsViewController: EventsOutputProtocol) {
+    init?(delegate: EventsOutputProtocol) {
         super.init(nibName: nil, bundle: nil)
-        self.eventsViewController = eventsViewController
+        self.delegate = delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,10 +69,7 @@ class CitiesViewController: UIViewController {
                 return
             }
             self?.saveChosenCity(cityName: cities[index].name, citySlug: cities[index].slug)
-            guard let eventsViewController = self?.eventsViewController else {
-                return
-            }
-            eventsViewController.didCityChanged(name: cities[index].name, slug: cities[index].slug)
+            self?.delegate?.didCityChanged(name: cities[index].name, slug: cities[index].slug)
             self?.toEventsScreen()
         }
         
