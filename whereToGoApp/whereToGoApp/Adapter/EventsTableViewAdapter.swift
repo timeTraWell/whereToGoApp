@@ -10,7 +10,7 @@ import UIKit
 
 final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private let titleCellName = String(describing: TitleCell.self)
     private let contentCell = String(describing: ContentCell.self)
@@ -19,7 +19,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
     var didSelectItem: ((Int) -> Void)?
     private let fixedContentCells = 1
 
-    //MARK: - Init
+    // MARK: - Init
     
     init(events: [Event], tableView: UITableView) {
         self.events = events
@@ -32,12 +32,14 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             forCellReuseIdentifier: contentCell
         )
     }
-    
+
+    // MARK: - Internal helpers
+
     func addNewEvents(events: [Event]) {
         self.events += events
     }
 
-    //MARK:- UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -64,7 +66,7 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
         }
     }
     
-    //MARK:- UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -78,5 +80,4 @@ final class EventsTableViewAdapter: NSObject, UITableViewDataSource, UITableView
             scrollContentIsOverTop?(scrollView.contentOffset.y)
         }
     }
-    
 }

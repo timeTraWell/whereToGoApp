@@ -8,41 +8,40 @@
 import UIKit
 import MapKit
 
-class DetailEventViewController: UIViewController {
+final class DetailEventViewController: UIViewController {
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private var event: Event?
     private var adapter: ImageCollectionViewAdapter?
     
-    //MARK:- IBOutlets
+    // MARK: - IBOutlets
     
     @IBOutlet var container: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageCollectionView: UICollectionView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageCollectionView: UICollectionView!
+    @IBOutlet private weak var pageControl: UIPageControl!
+
+    @IBOutlet private weak var geoView: UIView!
+    @IBOutlet private weak var buttonBack: UIButton!
+    @IBOutlet private weak var map: MKMapView!
     
-    //MARK:- IBOutlets, labels
+    // MARK: - IBOutlets, labels
     
-    @IBOutlet weak var eventHeaderLabel: UILabel!
-    @IBOutlet weak var eventDescriptionLabel: UILabel!
-    @IBOutlet weak var eventDetailLabel: UILabel!
-    @IBOutlet weak var eventGeoLabel: UILabel!
-    @IBOutlet weak var eventDateLabel: UILabel!
-    @IBOutlet weak var eventCostLabel: UILabel!
+    @IBOutlet private weak var eventHeaderLabel: UILabel!
+    @IBOutlet private weak var eventDescriptionLabel: UILabel!
+    @IBOutlet private weak var eventDetailLabel: UILabel!
+    @IBOutlet private weak var eventGeoLabel: UILabel!
+    @IBOutlet private weak var eventDateLabel: UILabel!
+    @IBOutlet private weak var eventCostLabel: UILabel!
     
-    @IBOutlet weak var geoView: UIView!
-    
-    @IBOutlet weak var buttonBack: UIButton!
-    @IBOutlet weak var map: MKMapView!
-    
-    //MARK:- IBAction
+    // MARK: - IBActions
     
     @IBAction func buttonBackTouch(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    //MARK:- UIViewController
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +50,13 @@ class DetailEventViewController: UIViewController {
         setupContent()
     }
     
-    //MARK:- Public method
+    // MARK: - Public method
     
     public func setEvent(event: Event) {
         self.event = event
     }
     
-    
-    //MARK:- Private helpers
+    // MARK: - Private helpers
     
     private func setupAdapter() {
         guard let images = event?.images else {

@@ -8,20 +8,22 @@
 
 import UIKit
 
-class CitiesViewController: UIViewController {
+final class CitiesViewController: UIViewController {
     
-    //MARK:- IBOutlets
+    // MARK: - IBOutlets
     
-    @IBOutlet weak var citiesTableView: UITableView!
-    @IBOutlet weak var loadingIndicatorContainer: UIView!
+    @IBOutlet private weak var citiesTableView: UITableView!
+    @IBOutlet private weak var loadingIndicatorContainer: UIView!
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private var adapter: CitiesTableViewAdapter?
     private var cities: [City]?
     
     weak var delegate: EventsOutputProtocol?
-    
+
+    // MARK: - Init
+
     init?(delegate: EventsOutputProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
@@ -31,7 +33,7 @@ class CitiesViewController: UIViewController {
         return nil
     }
 
-    //MARK:- UIViewController
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class CitiesViewController: UIViewController {
         loadContent()
     }
     
-    //MARK:- Private helpers
+    // MARK: - Private helpers
     
     private func setupTableView() {
         citiesTableView.tableFooterView = UIView()
@@ -69,7 +71,7 @@ class CitiesViewController: UIViewController {
                 return
             }
             self?.saveChosenCity(cityName: cities[index].name, citySlug: cities[index].slug)
-            self?.delegate?.didCityChanged(name: cities[index].name, slug: cities[index].slug)
+            self?.delegate?.didCityChange(name: cities[index].name, slug: cities[index].slug)
             self?.toEventsScreen()
         }
         

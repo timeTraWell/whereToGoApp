@@ -145,7 +145,8 @@ final class EventsViewController: UIViewController {
         }
     }
     
-    @objc private func refreshTarget() {
+    @objc
+    private func refreshTarget() {
         let loadingTime: Double = 5.5
         let dispatchTime: DispatchTime = .now() + loadingTime
         DispatchQueue.main.asyncAfter(deadline: dispatchTime ) {
@@ -195,9 +196,25 @@ final class EventsViewController: UIViewController {
         loaderView.isHidden = true
         internetErrorConectionView.isHidden = false
     }
-    
-    //MARK:- Navigation
-    
+}
+
+// MARK: - EventsOutputProtocol
+
+extension EventsViewController: EventsOutputProtocol {
+    func didCityChange(name: String, slug: String) {
+        self.city = City(name: name, slug: slug)
+        tableView.contentOffset.y = 0
+        setupNavButton()
+        self.eventsCount = 20
+        self.page = 1
+        loadContent(eventsCount: eventsCount)
+    }
+}
+
+// MARK: - Navigation
+
+extension EventsViewController {
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
@@ -215,17 +232,5 @@ final class EventsViewController: UIViewController {
             default:
                 return
         }
-    }
-    
-}
-
-extension EventsViewController: EventsOutputProtocol {
-    func didCityChanged(name: String, slug: String) {
-        self.city = City(name: name, slug: slug)
-        tableView.contentOffset.y = 0
-        setupNavButton()
-        self.eventsCount = 20
-        self.page = 1
-        loadContent(eventsCount: eventsCount)
     }
 }

@@ -9,14 +9,19 @@
 import Foundation
 
 extension City {
-    
-    static func parse(json: [String: Any]) -> City? {
+
+    private enum Keys: String {
+        case name = "name"
+        case slug = "slug"
+    }
+
+    static func parse(json: Json) -> City? {
         
-        guard let slug = json["slug"] as? String else {
+        guard let slug = json[Keys.slug.rawValue] as? String else {
             return nil
         }
         
-        guard let name = json["name"] as? String else {
+        guard let name = json[Keys.name.rawValue] as? String else {
             return nil
         }
         
@@ -27,8 +32,8 @@ extension City {
         
         var jsonObject = [String: Any]()
         
-        jsonObject["name"] = self.name
-        jsonObject["slug"] = self.slug
+        jsonObject[Keys.name.rawValue] = self.name
+        jsonObject[Keys.slug.rawValue] = self.slug
         
         return jsonObject
     }

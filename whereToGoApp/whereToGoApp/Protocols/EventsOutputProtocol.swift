@@ -9,5 +9,5 @@
 import Foundation
 
 protocol EventsOutputProtocol: class {
-    func didCityChanged(name: String, slug: String)
+    func didCityChange(name: String, slug: String)
 }

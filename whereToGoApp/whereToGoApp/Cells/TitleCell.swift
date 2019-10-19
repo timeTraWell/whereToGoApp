@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TitleCell: UITableViewCell {
+final class TitleCell: UITableViewCell {
 
     //MARK:- IBOutlet
     
     @IBOutlet weak var titleLabel: UILabel!
 
-    //MARK:- UITableViewCell
+    // MARK :- UITableViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()

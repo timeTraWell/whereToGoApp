@@ -8,27 +8,28 @@
 
 import UIKit
 
-class ImageCollectionCell: UICollectionViewCell {
+final class ImageCollectionCell: UICollectionViewCell {
 
     //MARK:- IBOutlets
     
-    @IBOutlet weak var imageContainer: UIImageView!
+    @IBOutlet private weak var imageContainer: UIImageView!
     
-    //MARK:- UICollectionViewCell
+    // MARK: - UICollectionViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageContainer.image = nil
+    }
+
+    // MARK: - Private helpers
+
     public func setImage(respondImageURL: String) {
         if let imageURL = URL(string: respondImageURL), let placeholder = UIImage(named: "defaultImg") {
             self.imageContainer.af_setImage(withURL: imageURL, placeholderImage: placeholder)
         }
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageContainer.image = nil
-    }
-    
 }
