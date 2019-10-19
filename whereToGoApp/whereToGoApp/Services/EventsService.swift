@@ -9,9 +9,15 @@
 import Foundation
 import Alamofire
 
+typealias Json = [String : Any]
+typealias resultCompletion = (Result<[Event]>) -> Void
+
 enum Result<ResultDataType> {
     case data(ResultDataType)
     case error(ServiceError)
+}
+enum BaseRoute {
+    static let base = "https://kudago.com/public-api/v1.4"
 }
 
 enum ServiceError: LocalizedError {
@@ -20,7 +26,7 @@ enum ServiceError: LocalizedError {
     case noResult
     case serializeCrash
     case mappingCrash
-    
+
     var errorDescription: String? {
         switch self {
         case .resultsMissing:
@@ -38,10 +44,18 @@ enum ServiceError: LocalizedError {
 }
 
 
-class EventsService {
-    
-    func loadEvents(eventsCount: Int, page: Int, citySlug: String, completion: @escaping (Result<[Event]>) -> Void) {
-        let url = "https://kudago.com/public-api/v1.4/events/?fields=id,dates,place,images,price,title,description,body_text&expand=place&page_size=\(eventsCount)&page=\(page)&text_format=text&location=\(citySlug)"
+final class EventsService {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let url = "/events/?fields=id,dates,place,images,price,title,description,body_text&expand=place"
+        static let textFormat = "&text_format=text"
+        static let results = "results"
+    }
+    func loadEvents(eventsCount: Int, page: Int, citySlug: String, completion: @escaping resultCompletion) {
+        let url = formUrl(eventsCount: eventsCount, page: page, citySlug: citySlug)
+
         Alamofire.request(url, method: .get).responseJSON { response in
             guard response.result.isSuccess else {
                 return completion(.error(.noResult))
@@ -51,7 +65,7 @@ class EventsService {
                 return completion(.error(.dataMissing))
             }
                 
-            guard let resultsEvents = json["results"]  else {
+            guard let resultsEvents = json[Constants.results]  else {
                 return completion(.error(.resultsMissing))
             }
                 
@@ -67,12 +81,18 @@ class EventsService {
         }
     }
     
-    //MARK:- Private helper
+    // MARK: - Private helper
     
     private func getActualDate() -> Int {
         let someDate = Date()
         let timeInterval = someDate.timeIntervalSince1970
         return Int(timeInterval)
     }
-    
+
+    private func formUrl(eventsCount: Int, page: Int, citySlug: String) -> String {
+        let pageSize = "&page_size=" + "\(eventsCount)"
+        let page = "&page=" + "\(page)"
+        let location = "&location=" + "\(citySlug)"
+        return BaseRoute.base + Constants.url + pageSize + page + Constants.textFormat + location
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class PlaceService {
+final class PlaceService {
     
     func loadCities(completion: @escaping (Result<[City]>) -> Void) {
         let url = "https://kudago.com/public-api/v1.4/locations/?fields=name,slug&order_by=name&lang=ru"

@@ -10,7 +10,7 @@ import Foundation
 
 class FileService {
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private let fileName = "cityInfo.json"
     
@@ -57,7 +57,7 @@ class FileService {
         }
     }
     
-    //MARK:- Private helper
+    // MARK :- Private helper
     
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

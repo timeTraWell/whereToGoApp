@@ -8,15 +8,15 @@
 
 import UIKit
 
-class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private let cities: [City]
     private let cityCell = String(describing: CityCell.self)
     var didSelectItem: ( (Int) -> Void )?
     
-    //MARK:- Init
+    // MARK: - Init
     
     init(cities: [City], tableView: UITableView) {
         self.cities = cities
@@ -26,7 +26,7 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
         )
     }
     
-    //MARK:- UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
@@ -41,10 +41,9 @@ class CitiesTableViewAdapter: NSObject, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    //MARK:- UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItem?(indexPath.row)
     }
-    
 }

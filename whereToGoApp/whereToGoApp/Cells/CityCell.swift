@@ -8,19 +8,19 @@
 
 import UIKit
 
-class CityCell: UITableViewCell {
+final class CityCell: UITableViewCell {
     
-    //MARK:- IBOutlet
+    // MARK: - IBOutlet
     
-    @IBOutlet weak var cityNameLabel: UILabel!    
-    @IBOutlet weak var container: UIView!
+    @IBOutlet private weak var cityNameLabel: UILabel!
+    @IBOutlet private weak var container: UIView!
     
-    //MARK:- Properties
+    // MARK: - Properties
     
     private var cityName: String?
     private var citySlug: String?
     
-    //MARK:- TableViewCell
+    //MARK :- UITableViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +36,7 @@ class CityCell: UITableViewCell {
         self.selectedBackgroundView = backgroundView
     }
     
-    //MARK:- Setup func
+    // MARK: - Internal helpers
     
     func setupCell() {
         cityNameLabel.text = self.cityName
@@ -47,15 +47,13 @@ class CityCell: UITableViewCell {
         self.citySlug = slug
     }
     
-    //MARK:- Private helper
-    
+    // MARK: - Private helper
+
     private func initContainer() {
         container.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         container.layer.cornerRadius = 10
-        
         container.layer.borderColor = Color.navOrange.cgColor
         container.layer.borderWidth = 1.0
     }
-    
 }
