@@ -71,10 +71,10 @@ final class DetailEventViewController: UIViewController {
     }
     
     private func setupContent() {
-        let lat = event?.place?.coords.lat ?? 55.7522200
-        let lon = event?.place?.coords.lon ?? 37.6155600 // msk coords
-        setupMap(latitude: lat, longitude: lon)
-        
+        if let lat = event?.place?.coords.lat, let lon = event?.place?.coords.lon {
+            setupMap(latitude: lat, longitude: lon)
+        }
+
         setupEventHeaderLabel(label: eventHeaderLabel)
         setupEventDescriptionLabel(label: eventDescriptionLabel)
         setupEventDetailLabel(label: eventDetailLabel)
